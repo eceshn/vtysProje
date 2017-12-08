@@ -24,3 +24,9 @@ hs_err_pid*
 # intellij files
 .idea
 *.iml
+
+# netbeans form files
+*.form
+
+# maven build output
+/target/
