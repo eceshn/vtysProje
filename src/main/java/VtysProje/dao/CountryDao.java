@@ -24,15 +24,15 @@ public class CountryDao {
         List<Country> countries = new ArrayList<>();
         try {
 
-            connection.open();
+            connection.openStatement();
             String sql = "SELECT * FROM \"Countries\"";
-            ResultSet resultSet = connection.executeQuery(sql);
+            ResultSet resultSet = connection.executeSelectQuery(sql);
 
             while (!resultSet.isClosed() && resultSet.next()) {
                 countries.add(Converter.initCountryFromResultSet(resultSet));
             }
 
-            connection.close();
+            connection.closeStatement();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -43,15 +43,15 @@ public class CountryDao {
     public Country getById(int id) {
         Country country = new Country();
         try {
-            connection.open();
+            connection.openStatement();
             String sql = "SELECT * FROM \"Countries\" WHERE id=" + id;
-            ResultSet resultSet = connection.executeQuery(sql);
+            ResultSet resultSet = connection.executeSelectQuery(sql);
 
             if (!resultSet.isClosed() && resultSet.next()) {
                 country = Converter.initCountryFromResultSet(resultSet);
             }
 
-            connection.close();
+            connection.closeStatement();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -63,19 +63,34 @@ public class CountryDao {
         Country country = new Country();
         try {
 
-            connection.open();
+            connection.openStatement();
             String sql = "SELECT * FROM \"Countries\" WHERE code=" + code;
-            ResultSet resultSet = connection.executeQuery(sql);
+            ResultSet resultSet = connection.executeSelectQuery(sql);
 
             if (!resultSet.isClosed() && resultSet.next()) {
                 country = Converter.initCountryFromResultSet(resultSet);
             }
 
-            connection.close();
+            connection.closeStatement();
         } catch (Exception e) {
             e.printStackTrace();
         }
 
         return country;
+    }
+
+    public boolean add(Country country) {
+        boolean added = false;
+        try {
+            connection.openStatement();
+
+            String sql = "INSERT INTO \"Countries\"(\"name\", \"code\") VALUES ('" + country.getName() + "', " + country.getCode() + ")";
+            added = connection.executeUpdateQuery(sql);
+
+            connection.closeStatement();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return added;
     }
 }

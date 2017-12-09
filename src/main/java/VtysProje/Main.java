@@ -2,8 +2,10 @@ package VtysProje;
 
 import VtysProje.dao.CityDao;
 import VtysProje.dao.CountryDao;
+import VtysProje.dao.UserDao;
 import VtysProje.model.*;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,6 +19,7 @@ import java.util.List;
 public class Main extends javax.swing.JFrame {
     private CountryDao countryDao = new CountryDao();
     private CityDao cityDao = new CityDao();
+    private UserDao userDao = new UserDao();
 
 
     private List<Country> countries = new ArrayList<>();
@@ -36,7 +39,8 @@ public class Main extends javax.swing.JFrame {
     }
 
     private void refreshUsersList() {
-        // TODO users list
+        users = userDao.getAll();
+        jTable_users_list.setModel(DataListsCache.refreshUsers(users));
     }
 
     /**
@@ -46,6 +50,7 @@ public class Main extends javax.swing.JFrame {
         initComponents();
         refreshCountriesList();
         refreshCitiesList();
+        refreshUsersList();
     }
 
     /**
@@ -160,6 +165,11 @@ public class Main extends javax.swing.JFrame {
         jLabel_countries_add_code.setText("Country code:");
 
         jButton_countries_add.setText("Add");
+        jButton_countries_add.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_countries_addActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel_countries_addLayout = new javax.swing.GroupLayout(jPanel_countries_add);
         jPanel_countries_add.setLayout(jPanel_countries_addLayout);
@@ -492,15 +502,6 @@ public class Main extends javax.swing.JFrame {
         jTable_users_list.setColumnSelectionAllowed(true);
         jScrollPane_users_list.setViewportView(jTable_users_list);
         jTable_users_list.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
-        if (jTable_users_list.getColumnModel().getColumnCount() > 0) {
-            jTable_users_list.getColumnModel().getColumn(2).setHeaderValue("Unit Price In Stock");
-            jTable_users_list.getColumnModel().getColumn(3).setHeaderValue("Quantity");
-            jTable_users_list.getColumnModel().getColumn(4).setHeaderValue("Last name");
-            jTable_users_list.getColumnModel().getColumn(5).setHeaderValue("Password");
-            jTable_users_list.getColumnModel().getColumn(6).setHeaderValue("Address");
-            jTable_users_list.getColumnModel().getColumn(7).setHeaderValue("Phone Number");
-            jTable_users_list.getColumnModel().getColumn(8).setHeaderValue("Role");
-        }
 
         javax.swing.GroupLayout jPanel_users_listLayout = new javax.swing.GroupLayout(jPanel_users_list);
         jPanel_users_list.setLayout(jPanel_users_listLayout);
@@ -908,6 +909,22 @@ public class Main extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton_countries_addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_countries_addActionPerformed
+        String countryName = jTextField_countries_add_name.getText();
+        int countryCode = (int) jSpinner_countries_add_code.getValue();
+
+        Country country = new Country();
+        country.setName(countryName);
+        country.setCode(countryCode);
+
+        if (countryDao.add(country)) {
+            JOptionPane.showMessageDialog(this, "Added successfully");
+            jTextField_countries_add_name.setText("");
+            jSpinner_countries_add_code.setValue(0);
+            refreshCountriesList();
+        }
+    }//GEN-LAST:event_jButton_countries_addActionPerformed
 
     /**
      * @param args the command line arguments

@@ -27,6 +27,19 @@
                 </configuration>
                 <version>3.0.2</version>
             </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.6.0</version>
+                <configuration>
+                    <mainClass>VtysProje.Main</mainClass>
+                    <arguments>
+                        <argument>-jar</argument>
+                        <argument>target/VtysProje-1.0-SNAPSHOT.jar</argument>
+                    </arguments>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
     <dependencies>

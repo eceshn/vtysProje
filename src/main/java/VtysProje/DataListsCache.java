@@ -20,6 +20,8 @@ public class DataListsCache {
     public static DefaultTableModel stocksModel = new DefaultTableModel();
 
     public static DefaultTableModel refreshCountries(List<Country> countries) {
+        countriesModel.getDataVector().clear();
+
         for (Country country : countries) {
             countriesModel.addRow(new Object[]{country.getId(), country.getName(), country.getCode()});
         }
@@ -46,7 +48,7 @@ public class DataListsCache {
                     user.getPassword(),
                     user.getAddress(),
                     user.getPhoneNumber(),
-                    user.getRole()
+                    user.getRole().getRole_name()
             });
         }
 

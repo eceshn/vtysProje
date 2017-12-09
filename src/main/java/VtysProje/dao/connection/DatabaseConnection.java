@@ -17,19 +17,28 @@ public class DatabaseConnection {
         connection = DriverManager.getConnection(Constants.databaseUrl, Constants.databaseUserName, Constants.dataBasePassword);
     }
 
-    public ResultSet executeQuery(String query) throws SQLException, Exception {
+    public ResultSet executeSelectQuery(String query) throws SQLException, Exception {
         if (statement == null || statement.isClosed()) {
             throw new Exception("ERROR: Connection must be opened before execute query.");
         }
-        
+
         return statement.executeQuery(query);
     }
 
-    public void open() throws SQLException {
+    public boolean executeUpdateQuery(String query) throws SQLException, Exception {
+        if (statement == null || statement.isClosed()) {
+            throw new Exception("ERROR: Connection must be opened before execute query.");
+        }
+
+        statement.executeUpdate(query);
+        return true;
+    }
+
+    public void openStatement() throws SQLException {
         statement = connection.createStatement();
     }
 
-    public void close() throws SQLException {
+    public void closeStatement() throws SQLException {
         statement.close();
     }
 }
