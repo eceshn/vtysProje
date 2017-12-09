@@ -54,6 +54,7 @@ CREATE TABLE "Products_In_Stock" (
 
 CREATE TABLE "Stocks" (
 	"id" SERIAL PRIMARY KEY,
+	"name" VARCHAR,
 	"productId" INTEGER NOT NULL,
 	"quantity" INTEGER DEFAULT 0,
 	"unit_price" INTEGER NOT NULL,

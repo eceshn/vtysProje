@@ -32,35 +32,100 @@ public class Main extends javax.swing.JFrame {
         jTextField_countries_add_name = new javax.swing.JTextField();
         jLabel_countries_add_name = new javax.swing.JLabel();
         jLabel_countries_add_code = new javax.swing.JLabel();
-        jTextField_countries_add_code = new javax.swing.JTextField();
         jButton_countries_add = new javax.swing.JButton();
+        jSpinner_countries_add_code = new javax.swing.JSpinner();
         jPanel_countries_list = new javax.swing.JPanel();
         jScrollPane_countries_list = new javax.swing.JScrollPane();
-        jTable_countries = new javax.swing.JTable();
+        jTable_countries_list = new javax.swing.JTable();
         jPanel_cities = new javax.swing.JPanel();
         jTabbedPane_cities = new javax.swing.JTabbedPane();
         jPanel_cities_add = new javax.swing.JPanel();
         jTextField_cities_add_name = new javax.swing.JTextField();
         jLabel_cities_add_name = new javax.swing.JLabel();
         jLabel_cities_add_code = new javax.swing.JLabel();
-        jTextField_cities_add_code = new javax.swing.JTextField();
         jButton_cities_add = new javax.swing.JButton();
         jComboBox_cities_add_country = new javax.swing.JComboBox<>();
         jLabel_cities_add_country = new javax.swing.JLabel();
+        jSpinner_cities_add_code = new javax.swing.JSpinner();
         jPanel_cities_list = new javax.swing.JPanel();
-        jScrollPane_countries_list1 = new javax.swing.JScrollPane();
-        jTable_countries1 = new javax.swing.JTable();
+        jScrollPane_cities_list = new javax.swing.JScrollPane();
+        jTable_cities_list = new javax.swing.JTable();
+        jPanel_users = new javax.swing.JPanel();
+        jTabbedPane_users = new javax.swing.JTabbedPane();
+        jPanel_users_add = new javax.swing.JPanel();
+        jTextField_users_add_username = new javax.swing.JTextField();
+        jLabel_users_add_username = new javax.swing.JLabel();
+        jLabel_users_add_firstName = new javax.swing.JLabel();
+        jTextField_users_add_firstName = new javax.swing.JTextField();
+        jButton_users_add = new javax.swing.JButton();
+        jComboBox_users_add_city = new javax.swing.JComboBox<>();
+        jLabel_users_add_city = new javax.swing.JLabel();
+        jTextField_users_add_lastName = new javax.swing.JTextField();
+        jLabel_users_add_lastName = new javax.swing.JLabel();
+        jLabel_users_add_password = new javax.swing.JLabel();
+        jTextField_users_add_password = new javax.swing.JTextField();
+        jScrollPane_users_add_address = new javax.swing.JScrollPane();
+        jTextArea_users_add_address = new javax.swing.JTextArea();
+        jLabel_users_add_address = new javax.swing.JLabel();
+        jLabel_users_add_phoneNumber = new javax.swing.JLabel();
+        jTextField_users_add_phoneNumber = new javax.swing.JTextField();
+        jComboBox_users_add_role = new javax.swing.JComboBox<>();
+        jLabel_users_add_role = new javax.swing.JLabel();
+        jPanel_users_list = new javax.swing.JPanel();
+        jScrollPane_users_list = new javax.swing.JScrollPane();
+        jTable_users_list = new javax.swing.JTable();
+        jPanel_products = new javax.swing.JPanel();
+        jTabbedPane_products = new javax.swing.JTabbedPane();
+        jPanel_products_add = new javax.swing.JPanel();
+        jLabel_products_add_name = new javax.swing.JLabel();
+        jTextField_products_add_name = new javax.swing.JTextField();
+        jButton_products_add = new javax.swing.JButton();
+        jTextField_products_add_unitPrice = new javax.swing.JTextField();
+        jLabel_products_add_unitPrice = new javax.swing.JLabel();
+        jScrollPane_products_add_detail = new javax.swing.JScrollPane();
+        jTextArea_products_add_detail = new javax.swing.JTextArea();
+        jLabel_products_add_detail = new javax.swing.JLabel();
+        jPanel_products_list = new javax.swing.JPanel();
+        jScrollPane_products_list = new javax.swing.JScrollPane();
+        jTable_products_list = new javax.swing.JTable();
+        jPanel_stocks = new javax.swing.JPanel();
+        jTabbedPane_stocks = new javax.swing.JTabbedPane();
+        jPanel_stocks_add = new javax.swing.JPanel();
+        jLabel_stocks_add_product = new javax.swing.JLabel();
+        jButton_stocks_add = new javax.swing.JButton();
+        jTextField_stocks_add_unitPrice = new javax.swing.JTextField();
+        jLabel_stocks_add_unitPrice = new javax.swing.JLabel();
+        jLabel_stocks_add_quantity = new javax.swing.JLabel();
+        jTextField_stocks_add_quantity = new javax.swing.JTextField();
+        jComboBox_stocks_add_product = new javax.swing.JComboBox<>();
+        jTextField_stocks_add_name = new javax.swing.JTextField();
+        jLabel_stocks_add_name = new javax.swing.JLabel();
+        jPanel_stocks_list = new javax.swing.JPanel();
+        jScrollPane_stocks_list = new javax.swing.JScrollPane();
+        jTable_stocks_list = new javax.swing.JTable();
+        jPanel_productsInStock = new javax.swing.JPanel();
+        jTabbedPane_productsInStock = new javax.swing.JTabbedPane();
+        jPanel_productsInStock_add = new javax.swing.JPanel();
+        jButton_productsInStock_add = new javax.swing.JButton();
+        jLabel_productsInStock_add_stock = new javax.swing.JLabel();
+        jComboBox_productsInStock_add_stock = new javax.swing.JComboBox<>();
+        jLabel_productsInStock_add_serial = new javax.swing.JLabel();
+        jTextField_productsInStock_add_serial = new javax.swing.JTextField();
+        jLabel_productsInStocks_add_info1 = new javax.swing.JLabel();
+        jCheckBox_productsInStocks_add_defectiveStatus = new javax.swing.JCheckBox();
+        jPanel_productsInStock_list = new javax.swing.JPanel();
+        jScrollPane_productsInStock_list = new javax.swing.JScrollPane();
+        jTable_productsInStock_list = new javax.swing.JTable();
+        jComboBox_productsInStocks_list = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Simple CRUD");
 
         jTextField_countries_add_name.setText("CountryName");
 
-        jLabel_countries_add_name.setText("CountryName:");
+        jLabel_countries_add_name.setText("Country name:");
 
-        jLabel_countries_add_code.setText("CountryCode:");
-
-        jTextField_countries_add_code.setText("CountryCode");
+        jLabel_countries_add_code.setText("Country code:");
 
         jButton_countries_add.setText("Add");
 
@@ -69,20 +134,18 @@ public class Main extends javax.swing.JFrame {
         jPanel_countries_addLayout.setHorizontalGroup(
             jPanel_countries_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel_countries_addLayout.createSequentialGroup()
+                .addGap(302, 302, 302)
+                .addComponent(jButton_countries_add, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(342, 342, 342))
+            .addGroup(jPanel_countries_addLayout.createSequentialGroup()
+                .addGap(260, 260, 260)
                 .addGroup(jPanel_countries_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel_countries_addLayout.createSequentialGroup()
-                        .addGap(302, 302, 302)
-                        .addComponent(jButton_countries_add, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel_countries_addLayout.createSequentialGroup()
-                        .addGap(260, 260, 260)
-                        .addGroup(jPanel_countries_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel_countries_add_code)
-                            .addComponent(jLabel_countries_add_name))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                        .addGroup(jPanel_countries_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField_countries_add_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField_countries_add_code, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(jLabel_countries_add_name)
+                    .addComponent(jLabel_countries_add_code))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addGroup(jPanel_countries_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jTextField_countries_add_name)
+                    .addComponent(jSpinner_countries_add_code))
                 .addGap(280, 280, 280))
         );
         jPanel_countries_addLayout.setVerticalGroup(
@@ -94,16 +157,16 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jLabel_countries_add_name))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel_countries_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField_countries_add_code, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel_countries_add_code))
+                    .addComponent(jLabel_countries_add_code)
+                    .addComponent(jSpinner_countries_add_code, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jButton_countries_add)
-                .addContainerGap(183, Short.MAX_VALUE))
+                .addContainerGap(189, Short.MAX_VALUE))
         );
 
         jTabbedPane_countries.addTab("Add", jPanel_countries_add);
 
-        jTable_countries.setModel(new javax.swing.table.DefaultTableModel(
+        jTable_countries_list.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null}
             },
@@ -119,9 +182,9 @@ public class Main extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable_countries.setColumnSelectionAllowed(true);
-        jScrollPane_countries_list.setViewportView(jTable_countries);
-        jTable_countries.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+        jTable_countries_list.setColumnSelectionAllowed(true);
+        jScrollPane_countries_list.setViewportView(jTable_countries_list);
+        jTable_countries_list.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 
         javax.swing.GroupLayout jPanel_countries_listLayout = new javax.swing.GroupLayout(jPanel_countries_list);
         jPanel_countries_list.setLayout(jPanel_countries_listLayout);
@@ -159,11 +222,9 @@ public class Main extends javax.swing.JFrame {
 
         jTextField_cities_add_name.setText("CityName");
 
-        jLabel_cities_add_name.setText("CityName:");
+        jLabel_cities_add_name.setText("City name:");
 
-        jLabel_cities_add_code.setText("CityCode:");
-
-        jTextField_cities_add_code.setText("CityCode");
+        jLabel_cities_add_code.setText("City code:");
 
         jButton_cities_add.setText("Add");
 
@@ -185,13 +246,13 @@ public class Main extends javax.swing.JFrame {
                             .addComponent(jLabel_cities_add_country))
                         .addGap(39, 39, 39)
                         .addGroup(jPanel_cities_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField_cities_add_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField_cities_add_code, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox_cities_add_country, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jSpinner_cities_add_code, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
+                            .addComponent(jTextField_cities_add_name)
+                            .addComponent(jComboBox_cities_add_country, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel_cities_addLayout.createSequentialGroup()
                         .addGap(294, 294, 294)
                         .addComponent(jButton_cities_add, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(297, Short.MAX_VALUE))
+                .addGap(288, 288, 288))
         );
         jPanel_cities_addLayout.setVerticalGroup(
             jPanel_cities_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -202,20 +263,20 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jLabel_cities_add_name))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel_cities_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField_cities_add_code, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel_cities_add_code))
+                    .addComponent(jLabel_cities_add_code)
+                    .addComponent(jSpinner_cities_add_code, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel_cities_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jComboBox_cities_add_country, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel_cities_add_country))
                 .addGap(18, 18, 18)
                 .addComponent(jButton_cities_add)
-                .addContainerGap(180, Short.MAX_VALUE))
+                .addContainerGap(186, Short.MAX_VALUE))
         );
 
         jTabbedPane_cities.addTab("Add", jPanel_cities_add);
 
-        jTable_countries1.setModel(new javax.swing.table.DefaultTableModel(
+        jTable_cities_list.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null}
             },
@@ -231,8 +292,12 @@ public class Main extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane_countries_list1.setViewportView(jTable_countries1);
-        jTable_countries1.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+        jScrollPane_cities_list.setViewportView(jTable_cities_list);
+        jTable_cities_list.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+        if (jTable_cities_list.getColumnModel().getColumnCount() > 0) {
+            jTable_cities_list.getColumnModel().getColumn(2).setHeaderValue("Unit Price In Stock");
+            jTable_cities_list.getColumnModel().getColumn(3).setHeaderValue("Quantity");
+        }
 
         javax.swing.GroupLayout jPanel_cities_listLayout = new javax.swing.GroupLayout(jPanel_cities_list);
         jPanel_cities_list.setLayout(jPanel_cities_listLayout);
@@ -240,14 +305,14 @@ public class Main extends javax.swing.JFrame {
             jPanel_cities_listLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel_cities_listLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane_countries_list1, javax.swing.GroupLayout.DEFAULT_SIZE, 702, Short.MAX_VALUE)
+                .addComponent(jScrollPane_cities_list, javax.swing.GroupLayout.DEFAULT_SIZE, 702, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel_cities_listLayout.setVerticalGroup(
             jPanel_cities_listLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel_cities_listLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane_countries_list1, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane_cities_list, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -267,6 +332,534 @@ public class Main extends javax.swing.JFrame {
         jTabbedPane_cities.getAccessibleContext().setAccessibleName("");
 
         jTabbedPane_entites.addTab("Cities", jPanel_cities);
+
+        jTextField_users_add_username.setText("Username");
+
+        jLabel_users_add_username.setText("Username:");
+
+        jLabel_users_add_firstName.setText("First name:");
+
+        jTextField_users_add_firstName.setText("First name");
+
+        jButton_users_add.setText("Add");
+
+        jComboBox_users_add_city.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ankara", "London", "New York", "Fizan" }));
+
+        jLabel_users_add_city.setText("City:");
+
+        jTextField_users_add_lastName.setText("Last name");
+
+        jLabel_users_add_lastName.setText("Last name:");
+
+        jLabel_users_add_password.setText("Password:");
+
+        jTextField_users_add_password.setText("Password");
+
+        jTextArea_users_add_address.setColumns(20);
+        jTextArea_users_add_address.setRows(5);
+        jTextArea_users_add_address.setText("Address");
+        jScrollPane_users_add_address.setViewportView(jTextArea_users_add_address);
+
+        jLabel_users_add_address.setText("Address:");
+
+        jLabel_users_add_phoneNumber.setText("Phone number:");
+
+        jTextField_users_add_phoneNumber.setText("Phone number");
+
+        jComboBox_users_add_role.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Employee", "Customer" }));
+
+        jLabel_users_add_role.setText("Role:");
+
+        javax.swing.GroupLayout jPanel_users_addLayout = new javax.swing.GroupLayout(jPanel_users_add);
+        jPanel_users_add.setLayout(jPanel_users_addLayout);
+        jPanel_users_addLayout.setHorizontalGroup(
+            jPanel_users_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel_users_addLayout.createSequentialGroup()
+                .addGroup(jPanel_users_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel_users_addLayout.createSequentialGroup()
+                        .addGap(149, 149, 149)
+                        .addGroup(jPanel_users_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel_users_add_username)
+                            .addComponent(jLabel_users_add_firstName)
+                            .addComponent(jLabel_users_add_lastName)
+                            .addComponent(jLabel_users_add_password)
+                            .addComponent(jLabel_users_add_address)
+                            .addComponent(jLabel_users_add_phoneNumber)
+                            .addComponent(jLabel_users_add_city)
+                            .addComponent(jLabel_users_add_role))
+                        .addGap(39, 39, 39)
+                        .addGroup(jPanel_users_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jComboBox_users_add_city, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField_users_add_username, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField_users_add_firstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField_users_add_lastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField_users_add_password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane_users_add_address, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField_users_add_phoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboBox_users_add_role, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel_users_addLayout.createSequentialGroup()
+                        .addGap(218, 218, 218)
+                        .addComponent(jButton_users_add, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(229, Short.MAX_VALUE))
+        );
+        jPanel_users_addLayout.setVerticalGroup(
+            jPanel_users_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel_users_addLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel_users_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBox_users_add_role, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel_users_add_role))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel_users_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField_users_add_username, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel_users_add_username))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel_users_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField_users_add_firstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel_users_add_firstName))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel_users_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField_users_add_lastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel_users_add_lastName))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel_users_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField_users_add_password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel_users_add_password))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel_users_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField_users_add_phoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel_users_add_phoneNumber))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel_users_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBox_users_add_city, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel_users_add_city))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel_users_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane_users_add_address, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel_users_add_address))
+                .addGap(18, 18, 18)
+                .addComponent(jButton_users_add)
+                .addContainerGap(44, Short.MAX_VALUE))
+        );
+
+        jTabbedPane_users.addTab("Add", jPanel_users_add);
+
+        jTable_users_list.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Id", "City", "Username", "First name", "Last name", "Password", "Address", "Phone Number", "Role"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTable_users_list.setColumnSelectionAllowed(true);
+        jScrollPane_users_list.setViewportView(jTable_users_list);
+        jTable_users_list.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+        if (jTable_users_list.getColumnModel().getColumnCount() > 0) {
+            jTable_users_list.getColumnModel().getColumn(2).setHeaderValue("Unit Price In Stock");
+            jTable_users_list.getColumnModel().getColumn(3).setHeaderValue("Quantity");
+            jTable_users_list.getColumnModel().getColumn(4).setHeaderValue("Last name");
+            jTable_users_list.getColumnModel().getColumn(5).setHeaderValue("Password");
+            jTable_users_list.getColumnModel().getColumn(6).setHeaderValue("Address");
+            jTable_users_list.getColumnModel().getColumn(7).setHeaderValue("Phone Number");
+            jTable_users_list.getColumnModel().getColumn(8).setHeaderValue("Role");
+        }
+
+        javax.swing.GroupLayout jPanel_users_listLayout = new javax.swing.GroupLayout(jPanel_users_list);
+        jPanel_users_list.setLayout(jPanel_users_listLayout);
+        jPanel_users_listLayout.setHorizontalGroup(
+            jPanel_users_listLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel_users_listLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane_users_list, javax.swing.GroupLayout.DEFAULT_SIZE, 702, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel_users_listLayout.setVerticalGroup(
+            jPanel_users_listLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel_users_listLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane_users_list, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jTabbedPane_users.addTab("List", jPanel_users_list);
+
+        javax.swing.GroupLayout jPanel_usersLayout = new javax.swing.GroupLayout(jPanel_users);
+        jPanel_users.setLayout(jPanel_usersLayout);
+        jPanel_usersLayout.setHorizontalGroup(
+            jPanel_usersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jTabbedPane_users)
+        );
+        jPanel_usersLayout.setVerticalGroup(
+            jPanel_usersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jTabbedPane_users)
+        );
+
+        jTabbedPane_entites.addTab("Users", jPanel_users);
+
+        jLabel_products_add_name.setText("Product name:");
+
+        jTextField_products_add_name.setText("Product name");
+
+        jButton_products_add.setText("Add");
+
+        jTextField_products_add_unitPrice.setText("Unit price");
+
+        jLabel_products_add_unitPrice.setText("Unit price:");
+
+        jTextArea_products_add_detail.setColumns(20);
+        jTextArea_products_add_detail.setRows(5);
+        jTextArea_products_add_detail.setText("Detail");
+        jScrollPane_products_add_detail.setViewportView(jTextArea_products_add_detail);
+
+        jLabel_products_add_detail.setText("Detail:");
+
+        javax.swing.GroupLayout jPanel_products_addLayout = new javax.swing.GroupLayout(jPanel_products_add);
+        jPanel_products_add.setLayout(jPanel_products_addLayout);
+        jPanel_products_addLayout.setHorizontalGroup(
+            jPanel_products_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_products_addLayout.createSequentialGroup()
+                .addContainerGap(212, Short.MAX_VALUE)
+                .addGroup(jPanel_products_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton_products_add, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel_products_addLayout.createSequentialGroup()
+                        .addGroup(jPanel_products_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel_products_add_unitPrice)
+                            .addComponent(jLabel_products_add_name))
+                        .addGap(42, 42, 42)
+                        .addGroup(jPanel_products_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextField_products_add_name)
+                            .addComponent(jTextField_products_add_unitPrice)))
+                    .addGroup(jPanel_products_addLayout.createSequentialGroup()
+                        .addComponent(jLabel_products_add_detail)
+                        .addGap(90, 90, 90)
+                        .addComponent(jScrollPane_products_add_detail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(166, 166, 166))
+        );
+        jPanel_products_addLayout.setVerticalGroup(
+            jPanel_products_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel_products_addLayout.createSequentialGroup()
+                .addGap(105, 105, 105)
+                .addGroup(jPanel_products_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField_products_add_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel_products_add_name))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel_products_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField_products_add_unitPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel_products_add_unitPrice))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel_products_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane_products_add_detail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel_products_add_detail))
+                .addGap(23, 23, 23)
+                .addComponent(jButton_products_add)
+                .addContainerGap(104, Short.MAX_VALUE))
+        );
+
+        jTabbedPane_products.addTab("Add", jPanel_products_add);
+
+        jTable_products_list.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null}
+            },
+            new String [] {
+                "Id", "Product Name", "Unit Price", "Detail"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane_products_list.setViewportView(jTable_products_list);
+        jTable_products_list.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+        if (jTable_products_list.getColumnModel().getColumnCount() > 0) {
+            jTable_products_list.getColumnModel().getColumn(2).setHeaderValue("Unit Price In Stock");
+            jTable_products_list.getColumnModel().getColumn(3).setHeaderValue("Quantity");
+        }
+
+        javax.swing.GroupLayout jPanel_products_listLayout = new javax.swing.GroupLayout(jPanel_products_list);
+        jPanel_products_list.setLayout(jPanel_products_listLayout);
+        jPanel_products_listLayout.setHorizontalGroup(
+            jPanel_products_listLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel_products_listLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane_products_list, javax.swing.GroupLayout.DEFAULT_SIZE, 702, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel_products_listLayout.setVerticalGroup(
+            jPanel_products_listLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel_products_listLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane_products_list, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jTabbedPane_products.addTab("List", jPanel_products_list);
+
+        javax.swing.GroupLayout jPanel_productsLayout = new javax.swing.GroupLayout(jPanel_products);
+        jPanel_products.setLayout(jPanel_productsLayout);
+        jPanel_productsLayout.setHorizontalGroup(
+            jPanel_productsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jTabbedPane_products)
+        );
+        jPanel_productsLayout.setVerticalGroup(
+            jPanel_productsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jTabbedPane_products)
+        );
+
+        jTabbedPane_entites.addTab("Products", jPanel_products);
+
+        jLabel_stocks_add_product.setText("Product:");
+
+        jButton_stocks_add.setText("Add");
+
+        jTextField_stocks_add_unitPrice.setText("Unit price");
+
+        jLabel_stocks_add_unitPrice.setText("Unit price (In Stock):");
+
+        jLabel_stocks_add_quantity.setText("Quantity:");
+
+        jTextField_stocks_add_quantity.setText("Quantity");
+
+        jComboBox_stocks_add_product.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Product 1", "Product 2", "Product 3", "Product 4" }));
+
+        jTextField_stocks_add_name.setText("Stock name");
+
+        jLabel_stocks_add_name.setText("Stock name:");
+
+        javax.swing.GroupLayout jPanel_stocks_addLayout = new javax.swing.GroupLayout(jPanel_stocks_add);
+        jPanel_stocks_add.setLayout(jPanel_stocks_addLayout);
+        jPanel_stocks_addLayout.setHorizontalGroup(
+            jPanel_stocks_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_stocks_addLayout.createSequentialGroup()
+                .addContainerGap(203, Short.MAX_VALUE)
+                .addGroup(jPanel_stocks_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel_stocks_add_unitPrice)
+                    .addComponent(jLabel_stocks_add_product)
+                    .addComponent(jLabel_stocks_add_quantity)
+                    .addComponent(jLabel_stocks_add_name))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel_stocks_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel_stocks_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jTextField_stocks_add_unitPrice, javax.swing.GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE)
+                        .addComponent(jTextField_stocks_add_quantity)
+                        .addComponent(jTextField_stocks_add_name, javax.swing.GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE))
+                    .addComponent(jComboBox_stocks_add_product, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(308, 308, 308))
+            .addGroup(jPanel_stocks_addLayout.createSequentialGroup()
+                .addGap(268, 268, 268)
+                .addComponent(jButton_stocks_add, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel_stocks_addLayout.setVerticalGroup(
+            jPanel_stocks_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel_stocks_addLayout.createSequentialGroup()
+                .addGap(92, 92, 92)
+                .addGroup(jPanel_stocks_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel_stocks_add_product)
+                    .addComponent(jComboBox_stocks_add_product, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel_stocks_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField_stocks_add_unitPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel_stocks_add_unitPrice))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel_stocks_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField_stocks_add_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel_stocks_add_name))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel_stocks_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField_stocks_add_quantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel_stocks_add_quantity))
+                .addGap(18, 18, 18)
+                .addComponent(jButton_stocks_add)
+                .addContainerGap(142, Short.MAX_VALUE))
+        );
+
+        jTabbedPane_stocks.addTab("Add", jPanel_stocks_add);
+
+        jTable_stocks_list.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "Id", "Product Name", "Unit Price", "Unit Price In Stock", "Quantity", "Detail"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, true, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane_stocks_list.setViewportView(jTable_stocks_list);
+        jTable_stocks_list.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+        if (jTable_stocks_list.getColumnModel().getColumnCount() > 0) {
+            jTable_stocks_list.getColumnModel().getColumn(2).setHeaderValue("Unit Price");
+            jTable_stocks_list.getColumnModel().getColumn(3).setHeaderValue("Unit Price In Stock");
+            jTable_stocks_list.getColumnModel().getColumn(4).setHeaderValue("Quantity");
+        }
+
+        javax.swing.GroupLayout jPanel_stocks_listLayout = new javax.swing.GroupLayout(jPanel_stocks_list);
+        jPanel_stocks_list.setLayout(jPanel_stocks_listLayout);
+        jPanel_stocks_listLayout.setHorizontalGroup(
+            jPanel_stocks_listLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel_stocks_listLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane_stocks_list, javax.swing.GroupLayout.DEFAULT_SIZE, 702, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel_stocks_listLayout.setVerticalGroup(
+            jPanel_stocks_listLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel_stocks_listLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane_stocks_list, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jTabbedPane_stocks.addTab("List", jPanel_stocks_list);
+
+        javax.swing.GroupLayout jPanel_stocksLayout = new javax.swing.GroupLayout(jPanel_stocks);
+        jPanel_stocks.setLayout(jPanel_stocksLayout);
+        jPanel_stocksLayout.setHorizontalGroup(
+            jPanel_stocksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jTabbedPane_stocks)
+        );
+        jPanel_stocksLayout.setVerticalGroup(
+            jPanel_stocksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jTabbedPane_stocks)
+        );
+
+        jTabbedPane_entites.addTab("Stocks", jPanel_stocks);
+
+        jButton_productsInStock_add.setText("Add");
+
+        jLabel_productsInStock_add_stock.setText("Stock:");
+
+        jComboBox_productsInStock_add_stock.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Stock 1", "Stock 2", "Stock 3", "Stock 4" }));
+
+        jLabel_productsInStock_add_serial.setText("Serial:");
+
+        jLabel_productsInStocks_add_info1.setText("(Will be auto generated if empty)");
+
+        jCheckBox_productsInStocks_add_defectiveStatus.setText("Defective");
+
+        javax.swing.GroupLayout jPanel_productsInStock_addLayout = new javax.swing.GroupLayout(jPanel_productsInStock_add);
+        jPanel_productsInStock_add.setLayout(jPanel_productsInStock_addLayout);
+        jPanel_productsInStock_addLayout.setHorizontalGroup(
+            jPanel_productsInStock_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel_productsInStock_addLayout.createSequentialGroup()
+                .addContainerGap(248, Short.MAX_VALUE)
+                .addGroup(jPanel_productsInStock_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jCheckBox_productsInStocks_add_defectiveStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel_productsInStock_addLayout.createSequentialGroup()
+                        .addGroup(jPanel_productsInStock_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel_productsInStock_add_stock)
+                            .addComponent(jLabel_productsInStock_add_serial))
+                        .addGap(28, 28, 28)
+                        .addGroup(jPanel_productsInStock_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jComboBox_productsInStock_add_stock, 0, 80, Short.MAX_VALUE)
+                            .addComponent(jTextField_productsInStock_add_serial))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel_productsInStocks_add_info1)))
+                .addGap(133, 133, 133))
+            .addGroup(jPanel_productsInStock_addLayout.createSequentialGroup()
+                .addGap(284, 284, 284)
+                .addComponent(jButton_productsInStock_add, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel_productsInStock_addLayout.setVerticalGroup(
+            jPanel_productsInStock_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel_productsInStock_addLayout.createSequentialGroup()
+                .addGap(94, 94, 94)
+                .addGroup(jPanel_productsInStock_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBox_productsInStock_add_stock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel_productsInStock_add_stock))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel_productsInStock_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField_productsInStock_add_serial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel_productsInStocks_add_info1)
+                    .addComponent(jLabel_productsInStock_add_serial))
+                .addGap(16, 16, 16)
+                .addComponent(jCheckBox_productsInStocks_add_defectiveStatus)
+                .addGap(18, 18, 18)
+                .addComponent(jButton_productsInStock_add)
+                .addContainerGap(158, Short.MAX_VALUE))
+        );
+
+        jTabbedPane_productsInStock.addTab("Add", jPanel_productsInStock_add);
+
+        jTable_productsInStock_list.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null}
+            },
+            new String [] {
+                "Id", "Product Name", "Serial", "Defective Status"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane_productsInStock_list.setViewportView(jTable_productsInStock_list);
+        jTable_productsInStock_list.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+
+        jComboBox_productsInStocks_list.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Stock 1", "Stock 2", "Stock 3", "Stock 4" }));
+
+        javax.swing.GroupLayout jPanel_productsInStock_listLayout = new javax.swing.GroupLayout(jPanel_productsInStock_list);
+        jPanel_productsInStock_list.setLayout(jPanel_productsInStock_listLayout);
+        jPanel_productsInStock_listLayout.setHorizontalGroup(
+            jPanel_productsInStock_listLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel_productsInStock_listLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel_productsInStock_listLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane_productsInStock_list, javax.swing.GroupLayout.DEFAULT_SIZE, 702, Short.MAX_VALUE)
+                    .addGroup(jPanel_productsInStock_listLayout.createSequentialGroup()
+                        .addComponent(jComboBox_productsInStocks_list, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanel_productsInStock_listLayout.setVerticalGroup(
+            jPanel_productsInStock_listLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel_productsInStock_listLayout.createSequentialGroup()
+                .addGap(9, 9, 9)
+                .addComponent(jComboBox_productsInStocks_list, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane_productsInStock_list, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(103, Short.MAX_VALUE))
+        );
+
+        jTabbedPane_productsInStock.addTab("List", jPanel_productsInStock_list);
+
+        javax.swing.GroupLayout jPanel_productsInStockLayout = new javax.swing.GroupLayout(jPanel_productsInStock);
+        jPanel_productsInStock.setLayout(jPanel_productsInStockLayout);
+        jPanel_productsInStockLayout.setHorizontalGroup(
+            jPanel_productsInStockLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jTabbedPane_productsInStock)
+        );
+        jPanel_productsInStockLayout.setVerticalGroup(
+            jPanel_productsInStockLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jTabbedPane_productsInStock)
+        );
+
+        jTabbedPane_entites.addTab("Products In Stock", jPanel_productsInStock);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -325,28 +918,95 @@ public class Main extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton_cities_add;
     private javax.swing.JButton jButton_countries_add;
+    private javax.swing.JButton jButton_productsInStock_add;
+    private javax.swing.JButton jButton_products_add;
+    private javax.swing.JButton jButton_stocks_add;
+    private javax.swing.JButton jButton_users_add;
+    private javax.swing.JCheckBox jCheckBox_productsInStocks_add_defectiveStatus;
     private javax.swing.JComboBox<String> jComboBox_cities_add_country;
+    private javax.swing.JComboBox<String> jComboBox_productsInStock_add_stock;
+    private javax.swing.JComboBox<String> jComboBox_productsInStocks_list;
+    private javax.swing.JComboBox<String> jComboBox_stocks_add_product;
+    private javax.swing.JComboBox<String> jComboBox_users_add_city;
+    private javax.swing.JComboBox<String> jComboBox_users_add_role;
     private javax.swing.JLabel jLabel_cities_add_code;
     private javax.swing.JLabel jLabel_cities_add_country;
     private javax.swing.JLabel jLabel_cities_add_name;
     private javax.swing.JLabel jLabel_countries_add_code;
     private javax.swing.JLabel jLabel_countries_add_name;
+    private javax.swing.JLabel jLabel_productsInStock_add_serial;
+    private javax.swing.JLabel jLabel_productsInStock_add_stock;
+    private javax.swing.JLabel jLabel_productsInStocks_add_info1;
+    private javax.swing.JLabel jLabel_products_add_detail;
+    private javax.swing.JLabel jLabel_products_add_name;
+    private javax.swing.JLabel jLabel_products_add_unitPrice;
+    private javax.swing.JLabel jLabel_stocks_add_name;
+    private javax.swing.JLabel jLabel_stocks_add_product;
+    private javax.swing.JLabel jLabel_stocks_add_quantity;
+    private javax.swing.JLabel jLabel_stocks_add_unitPrice;
+    private javax.swing.JLabel jLabel_users_add_address;
+    private javax.swing.JLabel jLabel_users_add_city;
+    private javax.swing.JLabel jLabel_users_add_firstName;
+    private javax.swing.JLabel jLabel_users_add_lastName;
+    private javax.swing.JLabel jLabel_users_add_password;
+    private javax.swing.JLabel jLabel_users_add_phoneNumber;
+    private javax.swing.JLabel jLabel_users_add_role;
+    private javax.swing.JLabel jLabel_users_add_username;
     private javax.swing.JPanel jPanel_cities;
     private javax.swing.JPanel jPanel_cities_add;
     private javax.swing.JPanel jPanel_cities_list;
     private javax.swing.JPanel jPanel_countries;
     private javax.swing.JPanel jPanel_countries_add;
     private javax.swing.JPanel jPanel_countries_list;
+    private javax.swing.JPanel jPanel_products;
+    private javax.swing.JPanel jPanel_productsInStock;
+    private javax.swing.JPanel jPanel_productsInStock_add;
+    private javax.swing.JPanel jPanel_productsInStock_list;
+    private javax.swing.JPanel jPanel_products_add;
+    private javax.swing.JPanel jPanel_products_list;
+    private javax.swing.JPanel jPanel_stocks;
+    private javax.swing.JPanel jPanel_stocks_add;
+    private javax.swing.JPanel jPanel_stocks_list;
+    private javax.swing.JPanel jPanel_users;
+    private javax.swing.JPanel jPanel_users_add;
+    private javax.swing.JPanel jPanel_users_list;
+    private javax.swing.JScrollPane jScrollPane_cities_list;
     private javax.swing.JScrollPane jScrollPane_countries_list;
-    private javax.swing.JScrollPane jScrollPane_countries_list1;
+    private javax.swing.JScrollPane jScrollPane_productsInStock_list;
+    private javax.swing.JScrollPane jScrollPane_products_add_detail;
+    private javax.swing.JScrollPane jScrollPane_products_list;
+    private javax.swing.JScrollPane jScrollPane_stocks_list;
+    private javax.swing.JScrollPane jScrollPane_users_add_address;
+    private javax.swing.JScrollPane jScrollPane_users_list;
+    private javax.swing.JSpinner jSpinner_cities_add_code;
+    private javax.swing.JSpinner jSpinner_countries_add_code;
     private javax.swing.JTabbedPane jTabbedPane_cities;
     private javax.swing.JTabbedPane jTabbedPane_countries;
     private javax.swing.JTabbedPane jTabbedPane_entites;
-    private javax.swing.JTable jTable_countries;
-    private javax.swing.JTable jTable_countries1;
-    private javax.swing.JTextField jTextField_cities_add_code;
+    private javax.swing.JTabbedPane jTabbedPane_products;
+    private javax.swing.JTabbedPane jTabbedPane_productsInStock;
+    private javax.swing.JTabbedPane jTabbedPane_stocks;
+    private javax.swing.JTabbedPane jTabbedPane_users;
+    private javax.swing.JTable jTable_cities_list;
+    private javax.swing.JTable jTable_countries_list;
+    private javax.swing.JTable jTable_productsInStock_list;
+    private javax.swing.JTable jTable_products_list;
+    private javax.swing.JTable jTable_stocks_list;
+    private javax.swing.JTable jTable_users_list;
+    private javax.swing.JTextArea jTextArea_products_add_detail;
+    private javax.swing.JTextArea jTextArea_users_add_address;
     private javax.swing.JTextField jTextField_cities_add_name;
-    private javax.swing.JTextField jTextField_countries_add_code;
     private javax.swing.JTextField jTextField_countries_add_name;
+    private javax.swing.JTextField jTextField_productsInStock_add_serial;
+    private javax.swing.JTextField jTextField_products_add_name;
+    private javax.swing.JTextField jTextField_products_add_unitPrice;
+    private javax.swing.JTextField jTextField_stocks_add_name;
+    private javax.swing.JTextField jTextField_stocks_add_quantity;
+    private javax.swing.JTextField jTextField_stocks_add_unitPrice;
+    private javax.swing.JTextField jTextField_users_add_firstName;
+    private javax.swing.JTextField jTextField_users_add_lastName;
+    private javax.swing.JTextField jTextField_users_add_password;
+    private javax.swing.JTextField jTextField_users_add_phoneNumber;
+    private javax.swing.JTextField jTextField_users_add_username;
     // End of variables declaration//GEN-END:variables
 }

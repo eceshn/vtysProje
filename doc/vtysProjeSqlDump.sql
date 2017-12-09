@@ -5,7 +5,7 @@
 -- Dumped from database version 9.6.6
 -- Dumped by pg_dump version 9.6.6
 
--- Started on 2017-12-08 23:39:20
+-- Started on 2017-12-09 14:47:27
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -53,7 +53,7 @@ CREATE SEQUENCE "Cities_id_seq"
 ALTER TABLE "Cities_id_seq" OWNER TO postgres;
 
 --
--- TOC entry 2209 (class 0 OID 0)
+-- TOC entry 2210 (class 0 OID 0)
 -- Dependencies: 187
 -- Name: Cities_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -121,7 +121,7 @@ CREATE SEQUENCE "Products_In_Stock_id_seq"
 ALTER TABLE "Products_In_Stock_id_seq" OWNER TO postgres;
 
 --
--- TOC entry 2210 (class 0 OID 0)
+-- TOC entry 2211 (class 0 OID 0)
 -- Dependencies: 195
 -- Name: Products_In_Stock_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -145,7 +145,7 @@ CREATE SEQUENCE "Products_In_Stock_serial_number_seq"
 ALTER TABLE "Products_In_Stock_serial_number_seq" OWNER TO postgres;
 
 --
--- TOC entry 2211 (class 0 OID 0)
+-- TOC entry 2212 (class 0 OID 0)
 -- Dependencies: 196
 -- Name: Products_In_Stock_serial_number_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -169,7 +169,7 @@ CREATE SEQUENCE "Products_id_seq"
 ALTER TABLE "Products_id_seq" OWNER TO postgres;
 
 --
--- TOC entry 2212 (class 0 OID 0)
+-- TOC entry 2213 (class 0 OID 0)
 -- Dependencies: 193
 -- Name: Products_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -206,7 +206,7 @@ CREATE SEQUENCE "Roles_id_seq"
 ALTER TABLE "Roles_id_seq" OWNER TO postgres;
 
 --
--- TOC entry 2213 (class 0 OID 0)
+-- TOC entry 2214 (class 0 OID 0)
 -- Dependencies: 189
 -- Name: Roles_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -223,7 +223,8 @@ CREATE TABLE "Stocks" (
     id integer NOT NULL,
     "productId" integer NOT NULL,
     quantity integer DEFAULT 0,
-    unit_price integer NOT NULL
+    unit_price integer NOT NULL,
+    name character varying
 );
 
 
@@ -245,7 +246,7 @@ CREATE SEQUENCE "Stocks_id_seq"
 ALTER TABLE "Stocks_id_seq" OWNER TO postgres;
 
 --
--- TOC entry 2214 (class 0 OID 0)
+-- TOC entry 2215 (class 0 OID 0)
 -- Dependencies: 198
 -- Name: Stocks_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -289,7 +290,7 @@ CREATE SEQUENCE "Users_id_seq"
 ALTER TABLE "Users_id_seq" OWNER TO postgres;
 
 --
--- TOC entry 2215 (class 0 OID 0)
+-- TOC entry 2216 (class 0 OID 0)
 -- Dependencies: 191
 -- Name: Users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -313,7 +314,7 @@ CREATE SEQUENCE countries_id_seq
 ALTER TABLE countries_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2216 (class 0 OID 0)
+-- TOC entry 2217 (class 0 OID 0)
 -- Dependencies: 185
 -- Name: countries_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -322,7 +323,7 @@ ALTER SEQUENCE countries_id_seq OWNED BY "Countries".id;
 
 
 --
--- TOC entry 2045 (class 2604 OID 16978)
+-- TOC entry 2046 (class 2604 OID 16978)
 -- Name: Cities id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -330,7 +331,7 @@ ALTER TABLE ONLY "Cities" ALTER COLUMN id SET DEFAULT nextval('"Cities_id_seq"':
 
 
 --
--- TOC entry 2044 (class 2604 OID 16967)
+-- TOC entry 2045 (class 2604 OID 16967)
 -- Name: Countries id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -338,7 +339,7 @@ ALTER TABLE ONLY "Countries" ALTER COLUMN id SET DEFAULT nextval('countries_id_s
 
 
 --
--- TOC entry 2048 (class 2604 OID 17026)
+-- TOC entry 2049 (class 2604 OID 17026)
 -- Name: Products id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -346,7 +347,7 @@ ALTER TABLE ONLY "Products" ALTER COLUMN id SET DEFAULT nextval('"Products_id_se
 
 
 --
--- TOC entry 2049 (class 2604 OID 17039)
+-- TOC entry 2050 (class 2604 OID 17039)
 -- Name: Products_In_Stock id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -354,7 +355,7 @@ ALTER TABLE ONLY "Products_In_Stock" ALTER COLUMN id SET DEFAULT nextval('"Produ
 
 
 --
--- TOC entry 2050 (class 2604 OID 17040)
+-- TOC entry 2051 (class 2604 OID 17040)
 -- Name: Products_In_Stock serial_number; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -362,7 +363,7 @@ ALTER TABLE ONLY "Products_In_Stock" ALTER COLUMN serial_number SET DEFAULT next
 
 
 --
--- TOC entry 2046 (class 2604 OID 16994)
+-- TOC entry 2047 (class 2604 OID 16994)
 -- Name: Roles id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -370,7 +371,7 @@ ALTER TABLE ONLY "Roles" ALTER COLUMN id SET DEFAULT nextval('"Roles_id_seq"'::r
 
 
 --
--- TOC entry 2051 (class 2604 OID 17053)
+-- TOC entry 2052 (class 2604 OID 17053)
 -- Name: Stocks id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -378,7 +379,7 @@ ALTER TABLE ONLY "Stocks" ALTER COLUMN id SET DEFAULT nextval('"Stocks_id_seq"':
 
 
 --
--- TOC entry 2047 (class 2604 OID 17005)
+-- TOC entry 2048 (class 2604 OID 17005)
 -- Name: Users id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -386,7 +387,7 @@ ALTER TABLE ONLY "Users" ALTER COLUMN id SET DEFAULT nextval('"Users_id_seq"'::r
 
 
 --
--- TOC entry 2192 (class 0 OID 16975)
+-- TOC entry 2193 (class 0 OID 16975)
 -- Dependencies: 188
 -- Data for Name: Cities; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -396,7 +397,7 @@ COPY "Cities" (id, name, code, "countryId") FROM stdin;
 
 
 --
--- TOC entry 2217 (class 0 OID 0)
+-- TOC entry 2218 (class 0 OID 0)
 -- Dependencies: 187
 -- Name: Cities_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -405,7 +406,7 @@ SELECT pg_catalog.setval('"Cities_id_seq"', 1, false);
 
 
 --
--- TOC entry 2190 (class 0 OID 16964)
+-- TOC entry 2191 (class 0 OID 16964)
 -- Dependencies: 186
 -- Data for Name: Countries; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -415,7 +416,7 @@ COPY "Countries" (id, name, code) FROM stdin;
 
 
 --
--- TOC entry 2198 (class 0 OID 17023)
+-- TOC entry 2199 (class 0 OID 17023)
 -- Dependencies: 194
 -- Data for Name: Products; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -425,7 +426,7 @@ COPY "Products" (id, name, unit_price, detail) FROM stdin;
 
 
 --
--- TOC entry 2201 (class 0 OID 17036)
+-- TOC entry 2202 (class 0 OID 17036)
 -- Dependencies: 197
 -- Data for Name: Products_In_Stock; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -435,7 +436,7 @@ COPY "Products_In_Stock" (id, "productId", serial_number, defective_status) FROM
 
 
 --
--- TOC entry 2218 (class 0 OID 0)
+-- TOC entry 2219 (class 0 OID 0)
 -- Dependencies: 195
 -- Name: Products_In_Stock_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -444,7 +445,7 @@ SELECT pg_catalog.setval('"Products_In_Stock_id_seq"', 1, false);
 
 
 --
--- TOC entry 2219 (class 0 OID 0)
+-- TOC entry 2220 (class 0 OID 0)
 -- Dependencies: 196
 -- Name: Products_In_Stock_serial_number_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -453,7 +454,7 @@ SELECT pg_catalog.setval('"Products_In_Stock_serial_number_seq"', 1, false);
 
 
 --
--- TOC entry 2220 (class 0 OID 0)
+-- TOC entry 2221 (class 0 OID 0)
 -- Dependencies: 193
 -- Name: Products_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -462,7 +463,7 @@ SELECT pg_catalog.setval('"Products_id_seq"', 1, false);
 
 
 --
--- TOC entry 2194 (class 0 OID 16991)
+-- TOC entry 2195 (class 0 OID 16991)
 -- Dependencies: 190
 -- Data for Name: Roles; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -472,7 +473,7 @@ COPY "Roles" (id, role_name) FROM stdin;
 
 
 --
--- TOC entry 2221 (class 0 OID 0)
+-- TOC entry 2222 (class 0 OID 0)
 -- Dependencies: 189
 -- Name: Roles_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -481,17 +482,17 @@ SELECT pg_catalog.setval('"Roles_id_seq"', 1, false);
 
 
 --
--- TOC entry 2203 (class 0 OID 17050)
+-- TOC entry 2204 (class 0 OID 17050)
 -- Dependencies: 199
 -- Data for Name: Stocks; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY "Stocks" (id, "productId", quantity, unit_price) FROM stdin;
+COPY "Stocks" (id, "productId", quantity, unit_price, name) FROM stdin;
 \.
 
 
 --
--- TOC entry 2222 (class 0 OID 0)
+-- TOC entry 2223 (class 0 OID 0)
 -- Dependencies: 198
 -- Name: Stocks_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -500,7 +501,7 @@ SELECT pg_catalog.setval('"Stocks_id_seq"', 1, false);
 
 
 --
--- TOC entry 2196 (class 0 OID 17002)
+-- TOC entry 2197 (class 0 OID 17002)
 -- Dependencies: 192
 -- Data for Name: Users; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -510,7 +511,7 @@ COPY "Users" (id, first_name, last_name, user_name, password, address, phone_num
 
 
 --
--- TOC entry 2223 (class 0 OID 0)
+-- TOC entry 2224 (class 0 OID 0)
 -- Dependencies: 191
 -- Name: Users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -519,7 +520,7 @@ SELECT pg_catalog.setval('"Users_id_seq"', 1, false);
 
 
 --
--- TOC entry 2224 (class 0 OID 0)
+-- TOC entry 2225 (class 0 OID 0)
 -- Dependencies: 185
 -- Name: countries_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -528,7 +529,7 @@ SELECT pg_catalog.setval('countries_id_seq', 1, false);
 
 
 --
--- TOC entry 2056 (class 2606 OID 16983)
+-- TOC entry 2057 (class 2606 OID 16983)
 -- Name: Cities Cities_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -537,7 +538,7 @@ ALTER TABLE ONLY "Cities"
 
 
 --
--- TOC entry 2064 (class 2606 OID 17042)
+-- TOC entry 2065 (class 2606 OID 17042)
 -- Name: Products_In_Stock Products_In_Stock_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -546,7 +547,7 @@ ALTER TABLE ONLY "Products_In_Stock"
 
 
 --
--- TOC entry 2062 (class 2606 OID 17031)
+-- TOC entry 2063 (class 2606 OID 17031)
 -- Name: Products Products_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -555,7 +556,7 @@ ALTER TABLE ONLY "Products"
 
 
 --
--- TOC entry 2058 (class 2606 OID 16999)
+-- TOC entry 2059 (class 2606 OID 16999)
 -- Name: Roles Roles_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -564,7 +565,7 @@ ALTER TABLE ONLY "Roles"
 
 
 --
--- TOC entry 2066 (class 2606 OID 17056)
+-- TOC entry 2067 (class 2606 OID 17056)
 -- Name: Stocks Stocks_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -573,7 +574,7 @@ ALTER TABLE ONLY "Stocks"
 
 
 --
--- TOC entry 2060 (class 2606 OID 17010)
+-- TOC entry 2061 (class 2606 OID 17010)
 -- Name: Users Users_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -582,7 +583,7 @@ ALTER TABLE ONLY "Users"
 
 
 --
--- TOC entry 2054 (class 2606 OID 16972)
+-- TOC entry 2055 (class 2606 OID 16972)
 -- Name: Countries countries_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -591,7 +592,7 @@ ALTER TABLE ONLY "Countries"
 
 
 --
--- TOC entry 2067 (class 2606 OID 16984)
+-- TOC entry 2068 (class 2606 OID 16984)
 -- Name: Cities Cities_countryId_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -600,7 +601,7 @@ ALTER TABLE ONLY "Cities"
 
 
 --
--- TOC entry 2070 (class 2606 OID 17043)
+-- TOC entry 2071 (class 2606 OID 17043)
 -- Name: Products_In_Stock Products_In_Stock_productId_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -609,7 +610,7 @@ ALTER TABLE ONLY "Products_In_Stock"
 
 
 --
--- TOC entry 2071 (class 2606 OID 17057)
+-- TOC entry 2072 (class 2606 OID 17057)
 -- Name: Stocks Stocks_productId_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -618,7 +619,7 @@ ALTER TABLE ONLY "Stocks"
 
 
 --
--- TOC entry 2069 (class 2606 OID 17016)
+-- TOC entry 2070 (class 2606 OID 17016)
 -- Name: Users Users_cityId_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -627,7 +628,7 @@ ALTER TABLE ONLY "Users"
 
 
 --
--- TOC entry 2068 (class 2606 OID 17011)
+-- TOC entry 2069 (class 2606 OID 17011)
 -- Name: Users Users_role_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -635,7 +636,7 @@ ALTER TABLE ONLY "Users"
     ADD CONSTRAINT "Users_role_fk" FOREIGN KEY (role) REFERENCES "Roles"(id) ON UPDATE SET NULL ON DELETE SET NULL;
 
 
--- Completed on 2017-12-08 23:39:20
+-- Completed on 2017-12-09 14:47:28
 
 --
 -- PostgreSQL database dump complete
