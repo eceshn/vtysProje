@@ -11,14 +11,17 @@ public class ProductInStock {
     private int serialNumber;
     private boolean defectiveStatus;
 
+    private Product product;
+
     public ProductInStock() {
     }
 
-    public ProductInStock(int id, int product_id, int serialNumber, boolean defectiveStatus) {
+    public ProductInStock(int id, int product_id, int serialNumber, boolean defectiveStatus, Product product) {
         this.id = id;
         this.product_id = product_id;
         this.serialNumber = serialNumber;
         this.defectiveStatus = defectiveStatus;
+        this.product = product;
     }
 
     public int getId() {
@@ -51,5 +54,13 @@ public class ProductInStock {
 
     public void setDefectiveStatus(boolean defectiveStatus) {
         this.defectiveStatus = defectiveStatus;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
     }
 }

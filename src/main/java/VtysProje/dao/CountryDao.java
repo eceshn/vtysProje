@@ -2,10 +2,9 @@ package VtysProje.dao;
 
 import VtysProje.dao.connection.DatabaseConnection;
 import VtysProje.model.Country;
-import VtysProje.util.converter.CountryConverter;
+import VtysProje.util.Converter;
 
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,26 +14,25 @@ import java.util.List;
  */
 
 public class CountryDao {
-    private DatabaseConnection databaseConnection;
+    private DatabaseConnection connection = MainDao.getConnection();
 
     public CountryDao() {
-        try {
-            databaseConnection = new DatabaseConnection();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+
     }
 
     public List<Country> getAll() {
         List<Country> countries = new ArrayList<>();
         try {
 
-            databaseConnection.open();
+            connection.open();
             String sql = "SELECT * FROM \"Countries\"";
-            ResultSet resultSet = databaseConnection.executeQuery(sql);
-            countries = CountryConverter.getCountryListFromResultSet(resultSet);
+            ResultSet resultSet = connection.executeQuery(sql);
 
-            databaseConnection.close();
+            while (!resultSet.isClosed() && resultSet.next()) {
+                countries.add(Converter.initCountryFromResultSet(resultSet));
+            }
+
+            connection.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -45,13 +43,15 @@ public class CountryDao {
     public Country getById(int id) {
         Country country = new Country();
         try {
-
-            databaseConnection.open();
+            connection.open();
             String sql = "SELECT * FROM \"Countries\" WHERE id=" + id;
-            ResultSet resultSet = databaseConnection.executeQuery(sql);
-            country = CountryConverter.getCountryFromResultSet(resultSet);
+            ResultSet resultSet = connection.executeQuery(sql);
 
-            databaseConnection.close();
+            if (!resultSet.isClosed() && resultSet.next()) {
+                country = Converter.initCountryFromResultSet(resultSet);
+            }
+
+            connection.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -63,12 +63,15 @@ public class CountryDao {
         Country country = new Country();
         try {
 
-            databaseConnection.open();
+            connection.open();
             String sql = "SELECT * FROM \"Countries\" WHERE code=" + code;
-            ResultSet resultSet = databaseConnection.executeQuery(sql);
-            country = CountryConverter.getCountryFromResultSet(resultSet);
+            ResultSet resultSet = connection.executeQuery(sql);
 
-            databaseConnection.close();
+            if (!resultSet.isClosed() && resultSet.next()) {
+                country = Converter.initCountryFromResultSet(resultSet);
+            }
+
+            connection.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
