@@ -27,7 +27,7 @@
                 </configuration>
                 <version>3.0.2</version>
             </plugin>
-
+<!--
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
@@ -39,7 +39,7 @@
                         <argument>target/VtysProje-1.0-SNAPSHOT.jar</argument>
                     </arguments>
                 </configuration>
-            </plugin>
+            </plugin>-->
         </plugins>
     </build>
     <dependencies>

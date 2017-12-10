@@ -91,6 +91,25 @@ public class CountryDao {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
         return added;
+    }
+
+    public boolean update(Country country) {
+        boolean updated = false;
+
+        try {
+            connection.openStatement();
+
+            String sql = "UPDATE \"Countries\" SET name='" + country.getName() + "', code=" + country.getCode() +
+                    "WHERE id=" + country.getId();
+            updated = connection.executeUpdateQuery(sql);
+
+            connection.closeStatement();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return updated;
     }
 }
