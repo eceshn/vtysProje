@@ -19,7 +19,7 @@ public class ProductsView extends javax.swing.JPanel {
     private void refreshProducts() {
         DataCache.refreshProducts();
         jTable_products_list.setModel(DataModelsInitializer.initProductsTableModel(DataCache.products));
-        jComboBox_products_edit_select.setModel(DataModelsInitializer.initProductsComboboxModel(DataCache.products));
+        jComboBox_products_edit_select.setModel(DataModelsInitializer.initProductsComboBoxModel(DataCache.products));
     }
 
     /**

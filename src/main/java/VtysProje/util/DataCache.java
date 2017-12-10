@@ -5,12 +5,7 @@
  */
 package VtysProje.util;
 
-import VtysProje.dao.CityDao;
-import VtysProje.dao.CountryDao;
-import VtysProje.dao.ProductDao;
-import VtysProje.dao.RoleDao;
-import VtysProje.dao.StockDao;
-import VtysProje.dao.UserDao;
+import VtysProje.dao.*;
 import VtysProje.model.*;
 import java.util.List;
 

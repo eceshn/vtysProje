@@ -7,7 +7,6 @@ package VtysProje;
 
 import VtysProje.views.CitiesView;
 import VtysProje.views.CountriesView;
-import VtysProje.views.ProductsInStockView;
 import VtysProje.views.ProductsView;
 import VtysProje.views.StocksView;
 import VtysProje.views.UsersView;
@@ -28,7 +27,6 @@ public class Main extends javax.swing.JFrame {
         jTabbedPane_entites.addTab("Users", new UsersView());
         jTabbedPane_entites.addTab("Products", new ProductsView());
         jTabbedPane_entites.addTab("Stocks", new StocksView());
-        jTabbedPane_entites.addTab("Products In Stock", new ProductsInStockView());
         pack();
     }
 

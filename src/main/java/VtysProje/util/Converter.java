@@ -1,7 +1,6 @@
 package VtysProje.util;
 
 import VtysProje.model.*;
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -69,20 +68,6 @@ public class Converter {
         }
 
         return product;
-    }
-
-    public static ProductInStock initProductInStockFromResultSet(ResultSet resultSet) {
-        ProductInStock productInStock = new ProductInStock();
-        try {
-            productInStock.setId(resultSet.getInt("id"));
-            productInStock.setSerialNumber(resultSet.getInt("serial_number"));
-            productInStock.setDefectiveStatus(resultSet.getBoolean("defective_status"));
-            productInStock.setProduct_id(resultSet.getInt("product_id"));
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        return productInStock;
     }
 
     public static Role initRoleFromResultSet(ResultSet resultSet) {

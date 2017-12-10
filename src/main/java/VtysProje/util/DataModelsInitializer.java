@@ -99,7 +99,7 @@ public class DataModelsInitializer {
         return new DefaultComboBoxModel<>(names);
     }
 
-    public static DefaultComboBoxModel<String> initRolesComboboxModel(List<Role> roles) {
+    public static DefaultComboBoxModel<String> initRolesComboBoxModel(List<Role> roles) {
         Vector<String> names = new Vector<>();
         names.add("Select...");
 
@@ -110,7 +110,7 @@ public class DataModelsInitializer {
         return new DefaultComboBoxModel<>(names);
     }
 
-    public static DefaultComboBoxModel<String> initUsersComboboxModel(List<User> users) {
+    public static DefaultComboBoxModel<String> initUsersComboBoxModel(List<User> users) {
         Vector<String> names = new Vector<>();
         names.add("Select...");
 
@@ -121,7 +121,7 @@ public class DataModelsInitializer {
         return new DefaultComboBoxModel<>(names);
     }
 
-    public static DefaultComboBoxModel<String> initProductsComboboxModel(List<Product> products) {
+    public static DefaultComboBoxModel<String> initProductsComboBoxModel(List<Product> products) {
         Vector<String> names = new Vector<>();
         names.add("Select...");
 

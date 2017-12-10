@@ -21,7 +21,7 @@ public class StocksView extends javax.swing.JPanel {
         DataCache.refreshStocks();
         jTable_stocks_list.setModel(DataModelsInitializer.initStocksTableModel(DataCache.stocks));
 
-        DefaultComboBoxModel<String> productsModel = DataModelsInitializer.initProductsComboboxModel(DataCache.products);
+        DefaultComboBoxModel<String> productsModel = DataModelsInitializer.initProductsComboBoxModel(DataCache.products);
         jComboBox_stocks_add_product.setModel(productsModel);
         jComboBox_stocks_edit_product.setModel(productsModel);
 
@@ -208,8 +208,6 @@ public class StocksView extends javax.swing.JPanel {
 
         jComboBox_stocks_edit_product.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Product 1", "Product 2", "Product 3", "Product 4" }));
 
-        jTextField_stocks_edit_name.setText("Stock name");
-
         jLabel_stocks_edit_name.setText("Stock name:");
 
         jLabel_stocks_edit_select.setText("Editing Stock:");
@@ -367,9 +365,9 @@ public class StocksView extends javax.swing.JPanel {
         }
 
         Stock stock = DataCache.stocks.get(selectedIndex - 1);
-        jTextField_stocks_edit_name.setText("");
-        jSpinner_stocks_edit_quantity.setValue(0);
-        jSpinner_stocks_edit_unitPrice.setValue(0);
+        jTextField_stocks_edit_name.setText(stock.getName());
+        jSpinner_stocks_edit_quantity.setValue(stock.getQuantity());
+        jSpinner_stocks_edit_unitPrice.setValue(stock.getUnitPrice());
         jComboBox_stocks_edit_product.setSelectedItem(stock.getProduct().getName());
     }//GEN-LAST:event_jComboBox_stocks_edit_selectActionPerformed
 

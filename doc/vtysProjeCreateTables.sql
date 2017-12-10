@@ -47,17 +47,6 @@ CREATE TABLE "Products" (
 	"detail" VARCHAR(150)
 );
 
-CREATE TABLE "Products_In_Stock" (
-	"id" SERIAL PRIMARY KEY,
-	"product_id" INTEGER NOT NULL,
-	"serial_number" SERIAL NOT NULL,
-	"defective_status" BOOLEAN,
-	CONSTRAINT "Products_In_Stock_product_id_fk" FOREIGN KEY ("product_id")
-		REFERENCES "Products" ("id") MATCH SIMPLE
-		ON UPDATE CASCADE
-		ON DELETE CASCADE
-);
-
 CREATE TABLE "Stocks" (
 	"id" SERIAL PRIMARY KEY,
 	"name" VARCHAR,
@@ -65,7 +54,7 @@ CREATE TABLE "Stocks" (
 	"quantity" INTEGER DEFAULT 0,
 	"unit_price" INTEGER NOT NULL,
 	CONSTRAINT "Stocks_product_id_fk" FOREIGN KEY ("product_id")
-		REFERENCES "Products_In_Stock" ("id") MATCH SIMPLE
+		REFERENCES "Products" ("id") MATCH SIMPLE
 		ON UPDATE CASCADE
 		ON DELETE CASCADE
 );

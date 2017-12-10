@@ -14,7 +14,7 @@ public class UsersView extends javax.swing.JPanel {
     private void refreshUsers() {
         DataCache.refreshRoles();
         DataCache.refreshUsers();
-        DefaultComboBoxModel<String> rolesModel = DataModelsInitializer.initRolesComboboxModel(DataCache.roles);
+        DefaultComboBoxModel<String> rolesModel = DataModelsInitializer.initRolesComboBoxModel(DataCache.roles);
         jComboBox_users_add_role.setModel(rolesModel);
         jComboBox_users_edit_role.setModel(rolesModel);
 
@@ -22,7 +22,7 @@ public class UsersView extends javax.swing.JPanel {
         jComboBox_users_add_city.setModel(citiesModel);
         jComboBox_users_edit_city.setModel(citiesModel);
 
-        jComboBox_users_edit_select.setModel(DataModelsInitializer.initUsersComboboxModel(DataCache.users));
+        jComboBox_users_edit_select.setModel(DataModelsInitializer.initUsersComboBoxModel(DataCache.users));
         jTable_users_list.setModel(DataModelsInitializer.initUsersTableModel(DataCache.users));
     }
 

@@ -368,9 +368,6 @@
                   </AuxValues>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField_stocks_edit_name">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Stock name"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel_stocks_edit_name">
                   <Properties>
