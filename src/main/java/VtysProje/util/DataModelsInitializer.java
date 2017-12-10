@@ -131,4 +131,15 @@ public class DataModelsInitializer {
 
         return new DefaultComboBoxModel<>(names);
     }
+
+    public static DefaultComboBoxModel<String> initStocksComboboxModel(List<Stock> stocks) {
+        Vector<String> names = new Vector<>();
+        names.add("Select...");
+
+        for (Stock stock : stocks) {
+            names.add(stock.getName());
+        }
+
+        return new DefaultComboBoxModel<>(names);
+    }
 }

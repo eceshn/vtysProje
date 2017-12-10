@@ -28,7 +28,7 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="427" max="32767" attributes="0"/>
+          <EmptySpace min="0" pref="437" max="32767" attributes="0"/>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -71,58 +71,62 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace pref="207" max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel_stocks_add_unitPrice" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel_stocks_add_product" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel_stocks_add_quantity" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel_stocks_add_name" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jTextField_stocks_add_unitPrice" alignment="0" pref="81" max="32767" attributes="0"/>
-                                  <Component id="jTextField_stocks_add_quantity" alignment="0" pref="81" max="32767" attributes="0"/>
-                                  <Component id="jTextField_stocks_add_name" alignment="0" pref="81" max="32767" attributes="0"/>
-                              </Group>
-                              <Component id="jComboBox_stocks_add_product" alignment="0" min="-2" pref="81" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="308" max="-2" attributes="0"/>
-                      </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="268" max="-2" attributes="0"/>
-                          <Component id="jButton_stocks_add" min="-2" pref="80" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="226" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jLabel_stocks_add_name" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                          <Component id="jButton_stocks_add" alignment="1" min="-2" pref="80" max="-2" attributes="0"/>
+                                          <Component id="jLabel_stocks_add_unitPrice" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="jLabel_stocks_add_quantity" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="jTextField_stocks_add_name" max="32767" attributes="0"/>
+                                      <Component id="jSpinner_stocks_add_unitPrice" pref="81" max="32767" attributes="0"/>
+                                      <Component id="jSpinner_stocks_add_quantity" pref="81" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <Component id="jLabel_stocks_add_product" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="108" max="-2" attributes="0"/>
+                                  <Component id="jComboBox_stocks_add_product" min="-2" pref="81" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="-2" pref="265" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="jLabel_stocks_add_product" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="jComboBox_stocks_add_product" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="122" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jComboBox_stocks_add_product" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel_stocks_add_product" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jTextField_stocks_add_unitPrice" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel_stocks_add_unitPrice" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jTextField_stocks_add_name" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel_stocks_add_name" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTextField_stocks_add_name" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabel_stocks_add_unitPrice" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jSpinner_stocks_add_unitPrice" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jTextField_stocks_add_quantity" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel_stocks_add_quantity" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jSpinner_stocks_add_quantity" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                           <Component id="jButton_stocks_add" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="142" max="32767" attributes="0"/>
+                          <EmptySpace pref="101" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -137,26 +141,23 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Add"/>
                   </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="jTextField_stocks_add_unitPrice">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Unit price"/>
-                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_stocks_addActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel_stocks_add_unitPrice">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Unit price (In Stock):"/>
                   </Properties>
                 </Component>
+                <Component class="javax.swing.JSpinner" name="jSpinner_stocks_add_quantity">
+                </Component>
                 <Component class="javax.swing.JLabel" name="jLabel_stocks_add_quantity">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Quantity:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField_stocks_add_quantity">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Quantity"/>
-                  </Properties>
+                <Component class="javax.swing.JSpinner" name="jSpinner_stocks_add_unitPrice">
                 </Component>
                 <Component class="javax.swing.JComboBox" name="jComboBox_stocks_add_product">
                   <Properties>
@@ -174,9 +175,6 @@
                   </AuxValues>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField_stocks_add_name">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Stock name"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel_stocks_add_name">
                   <Properties>
@@ -197,9 +195,15 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
+                      <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane_stocks_list" pref="704" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jScrollPane_stocks_list" alignment="0" pref="704" max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jButton_stocks_list_delete" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -208,8 +212,10 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane_stocks_list" min="-2" pref="244" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="jScrollPane_stocks_list" pref="341" max="32767" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="jButton_stocks_list_delete" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -241,6 +247,163 @@
                     </Component>
                   </SubComponents>
                 </Container>
+                <Component class="javax.swing.JButton" name="jButton_stocks_list_delete">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Delete"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_stocks_list_deleteActionPerformed"/>
+                  </Events>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Container class="javax.swing.JPanel" name="jPanel_stocks_edit">
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+                  <JTabbedPaneConstraints tabName="Edit">
+                    <Property name="tabTitle" type="java.lang.String" value="Edit"/>
+                  </JTabbedPaneConstraints>
+                </Constraint>
+              </Constraints>
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace pref="263" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="jButton_stocks_edit" min="-2" pref="80" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel_stocks_edit_select" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel_stocks_edit_product" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel_stocks_edit_name" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel_stocks_edit_unitPrice" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel_stocks_edit_quantity" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jSpinner_stocks_edit_unitPrice" min="-2" pref="81" max="-2" attributes="0"/>
+                              <Component id="jComboBox_stocks_edit_product" min="-2" pref="81" max="-2" attributes="0"/>
+                              <Component id="jComboBox_stocks_edit_select" alignment="0" min="-2" pref="81" max="-2" attributes="0"/>
+                              <Component id="jTextField_stocks_edit_name" alignment="0" min="-2" pref="81" max="-2" attributes="0"/>
+                              <Component id="jSpinner_stocks_edit_quantity" min="-2" pref="81" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="252" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jComboBox_stocks_edit_select" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel_stocks_edit_select" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jComboBox_stocks_edit_product" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel_stocks_edit_product" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabel_stocks_edit_name" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTextField_stocks_edit_name" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabel_stocks_edit_unitPrice" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jSpinner_stocks_edit_unitPrice" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabel_stocks_edit_quantity" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jSpinner_stocks_edit_quantity" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="jButton_stocks_edit" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="120" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JLabel" name="jLabel_stocks_edit_product">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Product:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="jButton_stocks_edit">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Save"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_stocks_editActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel_stocks_edit_unitPrice">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Unit price (In Stock):"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel_stocks_edit_quantity">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Quantity:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JComboBox" name="jComboBox_stocks_edit_product">
+                  <Properties>
+                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                      <StringArray count="4">
+                        <StringItem index="0" value="Product 1"/>
+                        <StringItem index="1" value="Product 2"/>
+                        <StringItem index="2" value="Product 3"/>
+                        <StringItem index="3" value="Product 4"/>
+                      </StringArray>
+                    </Property>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                  </AuxValues>
+                </Component>
+                <Component class="javax.swing.JTextField" name="jTextField_stocks_edit_name">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Stock name"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel_stocks_edit_name">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Stock name:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel_stocks_edit_select">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Editing Stock:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JComboBox" name="jComboBox_stocks_edit_select">
+                  <Properties>
+                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                      <StringArray count="4">
+                        <StringItem index="0" value="Stock 1"/>
+                        <StringItem index="1" value="Stock 2"/>
+                        <StringItem index="2" value="Stock 3"/>
+                        <StringItem index="3" value="Stock 4"/>
+                      </StringArray>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBox_stocks_edit_selectActionPerformed"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                  </AuxValues>
+                </Component>
+                <Component class="javax.swing.JSpinner" name="jSpinner_stocks_edit_quantity">
+                </Component>
+                <Component class="javax.swing.JSpinner" name="jSpinner_stocks_edit_unitPrice">
+                </Component>
               </SubComponents>
             </Container>
           </SubComponents>

@@ -89,8 +89,12 @@ public class CityDao {
         try {
             connection.openStatement();
 
-            String sql = "INSERT INTO \"Cities\"(name, code, country_id) VALUES "
-                    + "('" + city.getName() + "', " + city.getCode() + ", " + city.getCountryId() + ")";
+            String sql = "INSERT INTO \"Cities\"(name, code, country_id) VALUES ("
+                    + "'" + city.getName() + "'"
+                    + ", " + city.getCode()
+                    + ", " + city.getCountryId()
+                    + ")";
+
             added = connection.executeUpdateQuery(sql);
 
             connection.closeStatement();
@@ -107,8 +111,12 @@ public class CityDao {
         try {
             connection.openStatement();
 
-            String sql = "UPDATE \"Cities\" SET \"name\"='" + city.getName() + "', code=" + city.getCode() + ", country_id=" + city.getCountryId()
+            String sql = "UPDATE \"Cities\" SET "
+                    + "name='" + city.getName() + "'"
+                    + ", code=" + city.getCode()
+                    + ", country_id=" + city.getCountryId()
                     + " WHERE id=" + city.getId();
+
             updated = connection.executeUpdateQuery(sql);
 
             connection.closeStatement();

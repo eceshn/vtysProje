@@ -40,6 +40,26 @@ public class ProductDao {
         return products;
     }
 
+    public Product getById(int id) {
+        Product product = new Product();
+        try {
+            connection.openStatement();
+
+            String sql = "SELECT * FROM \"Products\" WHERE id=" + id;
+            ResultSet resultSet = connection.executeSelectQuery(sql);
+
+            if (!resultSet.isClosed() && resultSet.next()) {
+                product = Converter.initProductFromResultSet(resultSet);
+            }
+
+            connection.closeStatement();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return product;
+    }
+
     public boolean add(Product product) {
         boolean added = false;
         try {

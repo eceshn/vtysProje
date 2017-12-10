@@ -9,6 +9,7 @@ import VtysProje.dao.CityDao;
 import VtysProje.dao.CountryDao;
 import VtysProje.dao.ProductDao;
 import VtysProje.dao.RoleDao;
+import VtysProje.dao.StockDao;
 import VtysProje.dao.UserDao;
 import VtysProje.model.*;
 import java.util.List;
@@ -24,12 +25,14 @@ public class DataCache {
     public static RoleDao roleDao = new RoleDao();
     public static UserDao userDao = new UserDao();
     public static ProductDao productDao = new ProductDao();
+    public static StockDao stockDao = new StockDao();
 
     public static List<Country> countries;
     public static List<City> cities;
     public static List<Role> roles;
     public static List<User> users;
     public static List<Product> products;
+    public static List<Stock> stocks;
 
     public static void initializeData() {
         countries = countryDao.getAll();
@@ -37,6 +40,7 @@ public class DataCache {
         roles = roleDao.getAll();
         users = userDao.getAll();
         products = productDao.getAll();
+        stocks = stockDao.getAll();
     }
 
     public static void refreshCountries() {
@@ -57,5 +61,9 @@ public class DataCache {
 
     public static void refreshProducts() {
         products = productDao.getAll();
+    }
+
+    public static void refreshStocks() {
+        stocks = stockDao.getAll();
     }
 }
