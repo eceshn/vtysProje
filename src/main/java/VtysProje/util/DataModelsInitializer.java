@@ -112,11 +112,21 @@ public class DataModelsInitializer {
 
     public static DefaultComboBoxModel<String> initUsersComboboxModel(List<User> users) {
         Vector<String> names = new Vector<>();
-
         names.add("Select...");
 
         for (User user : users) {
             names.add(user.getUserName());
+        }
+
+        return new DefaultComboBoxModel<>(names);
+    }
+
+    public static DefaultComboBoxModel<String> initProductsComboboxModel(List<Product> products) {
+        Vector<String> names = new Vector<>();
+        names.add("Select...");
+
+        for (Product product : products) {
+            names.add(product.getName());
         }
 
         return new DefaultComboBoxModel<>(names);

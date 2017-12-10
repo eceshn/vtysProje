@@ -3,9 +3,7 @@ package VtysProje.dao;
 import VtysProje.dao.connection.DatabaseConnection;
 import VtysProje.model.Country;
 import VtysProje.util.Converter;
-
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,10 +13,6 @@ import java.util.List;
 public class CountryDao {
 
     private DatabaseConnection connection = MainDao.getConnection();
-
-    public CountryDao() {
-
-    }
 
     public List<Country> getAll() {
         List<Country> countries = new ArrayList<>();
@@ -43,7 +37,7 @@ public class CountryDao {
     public Country getById(int id) {
         Country country = new Country();
         try {
-            
+
             connection.openStatement();
             String sql = "SELECT * FROM \"Countries\" WHERE id=" + id;
             ResultSet resultSet = connection.executeSelectQuery(sql);
@@ -85,7 +79,7 @@ public class CountryDao {
         try {
             connection.openStatement();
 
-            String sql = "INSERT INTO \"Countries\"(\"name\", \"code\") VALUES ('" + country.getName() + "', " + country.getCode() + ")";
+            String sql = "INSERT INTO \"Countries\"(name, code) VALUES ('" + country.getName() + "', " + country.getCode() + ")";
             added = connection.executeUpdateQuery(sql);
 
             connection.closeStatement();

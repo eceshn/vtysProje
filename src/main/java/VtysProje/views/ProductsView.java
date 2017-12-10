@@ -6,8 +6,9 @@
 package VtysProje.views;
 
 import VtysProje.model.Product;
-import java.util.ArrayList;
-import java.util.List;
+import VtysProje.util.DataCache;
+import VtysProje.util.DataModelsInitializer;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -15,13 +16,18 @@ import java.util.List;
  */
 public class ProductsView extends javax.swing.JPanel {
 
-    private List<Product> products = new ArrayList<>();
+    private void refreshProducts() {
+        DataCache.refreshProducts();
+        jTable_products_list.setModel(DataModelsInitializer.initProductsTableModel(DataCache.products));
+        jComboBox_products_edit_select.setModel(DataModelsInitializer.initProductsComboboxModel(DataCache.products));
+    }
 
     /**
      * Creates new form ProductsView
      */
     public ProductsView() {
         initComponents();
+        refreshProducts();
     }
 
     /**
@@ -39,28 +45,40 @@ public class ProductsView extends javax.swing.JPanel {
         jLabel_products_add_name = new javax.swing.JLabel();
         jTextField_products_add_name = new javax.swing.JTextField();
         jButton_products_add = new javax.swing.JButton();
-        jTextField_products_add_unitPrice = new javax.swing.JTextField();
         jLabel_products_add_unitPrice = new javax.swing.JLabel();
         jScrollPane_products_add_detail = new javax.swing.JScrollPane();
         jTextArea_products_add_detail = new javax.swing.JTextArea();
         jLabel_products_add_detail = new javax.swing.JLabel();
+        jSpinner_products_add_unitPrice = new javax.swing.JSpinner();
         jPanel_products_list = new javax.swing.JPanel();
         jScrollPane_products_list = new javax.swing.JScrollPane();
         jTable_products_list = new javax.swing.JTable();
+        jButton_products_list_delete = new javax.swing.JButton();
+        jPanel_products_edit = new javax.swing.JPanel();
+        jLabel_products_edit_name = new javax.swing.JLabel();
+        jTextField_products_edit_name = new javax.swing.JTextField();
+        jButton_products_edit = new javax.swing.JButton();
+        jLabel_products_edit_unitPrice = new javax.swing.JLabel();
+        jScrollPane_products_edit_detail = new javax.swing.JScrollPane();
+        jTextArea_products_edit_detail = new javax.swing.JTextArea();
+        jLabel_products_edit_detail = new javax.swing.JLabel();
+        jLabel_products_edit_select = new javax.swing.JLabel();
+        jComboBox_products_edit_select = new javax.swing.JComboBox<>();
+        jSpinner_products_edit_unitPrice = new javax.swing.JSpinner();
 
         jLabel_products_add_name.setText("Product name:");
 
-        jTextField_products_add_name.setText("Product name");
-
         jButton_products_add.setText("Add");
-
-        jTextField_products_add_unitPrice.setText("Unit price");
+        jButton_products_add.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_products_addActionPerformed(evt);
+            }
+        });
 
         jLabel_products_add_unitPrice.setText("Unit price:");
 
         jTextArea_products_add_detail.setColumns(20);
         jTextArea_products_add_detail.setRows(5);
-        jTextArea_products_add_detail.setText("Detail");
         jScrollPane_products_add_detail.setViewportView(jTextArea_products_add_detail);
 
         jLabel_products_add_detail.setText("Detail:");
@@ -68,131 +86,292 @@ public class ProductsView extends javax.swing.JPanel {
         javax.swing.GroupLayout jPanel_products_addLayout = new javax.swing.GroupLayout(jPanel_products_add);
         jPanel_products_add.setLayout(jPanel_products_addLayout);
         jPanel_products_addLayout.setHorizontalGroup(
-                jPanel_products_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_products_addLayout.createSequentialGroup()
-                                .addContainerGap(214, Short.MAX_VALUE)
-                                .addGroup(jPanel_products_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jButton_products_add, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(jPanel_products_addLayout.createSequentialGroup()
-                                                .addGroup(jPanel_products_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(jLabel_products_add_unitPrice)
-                                                        .addComponent(jLabel_products_add_name))
-                                                .addGap(42, 42, 42)
-                                                .addGroup(jPanel_products_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                        .addComponent(jTextField_products_add_name, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
-                                                        .addComponent(jTextField_products_add_unitPrice, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)))
-                                        .addGroup(jPanel_products_addLayout.createSequentialGroup()
-                                                .addComponent(jLabel_products_add_detail)
-                                                .addGap(90, 90, 90)
-                                                .addComponent(jScrollPane_products_add_detail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(166, 166, 166))
+            jPanel_products_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_products_addLayout.createSequentialGroup()
+                .addContainerGap(214, Short.MAX_VALUE)
+                .addGroup(jPanel_products_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton_products_add, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel_products_addLayout.createSequentialGroup()
+                        .addGroup(jPanel_products_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel_products_add_unitPrice)
+                            .addComponent(jLabel_products_add_name))
+                        .addGap(42, 42, 42)
+                        .addGroup(jPanel_products_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextField_products_add_name, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
+                            .addComponent(jSpinner_products_add_unitPrice)))
+                    .addGroup(jPanel_products_addLayout.createSequentialGroup()
+                        .addComponent(jLabel_products_add_detail)
+                        .addGap(90, 90, 90)
+                        .addComponent(jScrollPane_products_add_detail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(166, 166, 166))
         );
         jPanel_products_addLayout.setVerticalGroup(
-                jPanel_products_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel_products_addLayout.createSequentialGroup()
-                                .addGap(105, 105, 105)
-                                .addGroup(jPanel_products_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jTextField_products_add_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel_products_add_name))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel_products_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jTextField_products_add_unitPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel_products_add_unitPrice))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel_products_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jScrollPane_products_add_detail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel_products_add_detail))
-                                .addGap(23, 23, 23)
-                                .addComponent(jButton_products_add)
-                                .addContainerGap(104, Short.MAX_VALUE))
+            jPanel_products_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel_products_addLayout.createSequentialGroup()
+                .addGap(105, 105, 105)
+                .addGroup(jPanel_products_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField_products_add_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel_products_add_name))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel_products_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel_products_add_unitPrice)
+                    .addComponent(jSpinner_products_add_unitPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel_products_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane_products_add_detail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel_products_add_detail))
+                .addGap(23, 23, 23)
+                .addComponent(jButton_products_add)
+                .addContainerGap(112, Short.MAX_VALUE))
         );
 
         jTabbedPane_products.addTab("Add", jPanel_products_add);
 
         jTable_products_list.setModel(new javax.swing.table.DefaultTableModel(
-                new Object[][]{
-                    {null, null, null, null}
-                },
-                new String[]{
-                    "Id", "Product Name", "Unit Price", "Detail"
-                }
+            new Object [][] {
+                {null, null, null, null}
+            },
+            new String [] {
+                "Id", "Product Name", "Unit Price", "Detail"
+            }
         ) {
-            boolean[] canEdit = new boolean[]{
+            boolean[] canEdit = new boolean [] {
                 false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit[columnIndex];
+                return canEdit [columnIndex];
             }
         });
         jScrollPane_products_list.setViewportView(jTable_products_list);
 
+        jButton_products_list_delete.setText("Delete");
+        jButton_products_list_delete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_products_list_deleteActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel_products_listLayout = new javax.swing.GroupLayout(jPanel_products_list);
         jPanel_products_list.setLayout(jPanel_products_listLayout);
         jPanel_products_listLayout.setHorizontalGroup(
-                jPanel_products_listLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel_products_listLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jScrollPane_products_list, javax.swing.GroupLayout.DEFAULT_SIZE, 704, Short.MAX_VALUE)
-                                .addContainerGap())
+            jPanel_products_listLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel_products_listLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel_products_listLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane_products_list, javax.swing.GroupLayout.DEFAULT_SIZE, 704, Short.MAX_VALUE)
+                    .addGroup(jPanel_products_listLayout.createSequentialGroup()
+                        .addComponent(jButton_products_list_delete)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel_products_listLayout.setVerticalGroup(
-                jPanel_products_listLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel_products_listLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jScrollPane_products_list, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            jPanel_products_listLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel_products_listLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane_products_list, javax.swing.GroupLayout.DEFAULT_SIZE, 339, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton_products_list_delete)
+                .addContainerGap())
         );
 
         jTabbedPane_products.addTab("List", jPanel_products_list);
 
+        jLabel_products_edit_name.setText("Product name:");
+
+        jButton_products_edit.setText("Save");
+        jButton_products_edit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_products_editActionPerformed(evt);
+            }
+        });
+
+        jLabel_products_edit_unitPrice.setText("Unit price:");
+
+        jTextArea_products_edit_detail.setColumns(20);
+        jTextArea_products_edit_detail.setRows(5);
+        jScrollPane_products_edit_detail.setViewportView(jTextArea_products_edit_detail);
+
+        jLabel_products_edit_detail.setText("Detail:");
+
+        jLabel_products_edit_select.setText("Editing product:");
+
+        jComboBox_products_edit_select.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Product 1", "Product 2", "Product 3", "Product 4" }));
+        jComboBox_products_edit_select.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox_products_edit_selectActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel_products_editLayout = new javax.swing.GroupLayout(jPanel_products_edit);
+        jPanel_products_edit.setLayout(jPanel_products_editLayout);
+        jPanel_products_editLayout.setHorizontalGroup(
+            jPanel_products_editLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_products_editLayout.createSequentialGroup()
+                .addContainerGap(214, Short.MAX_VALUE)
+                .addGroup(jPanel_products_editLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton_products_edit, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel_products_editLayout.createSequentialGroup()
+                        .addComponent(jLabel_products_edit_detail)
+                        .addGap(90, 90, 90)
+                        .addComponent(jScrollPane_products_edit_detail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel_products_editLayout.createSequentialGroup()
+                        .addGroup(jPanel_products_editLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel_products_edit_unitPrice)
+                            .addComponent(jLabel_products_edit_name)
+                            .addComponent(jLabel_products_edit_select))
+                        .addGap(37, 37, 37)
+                        .addGroup(jPanel_products_editLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextField_products_edit_name)
+                            .addComponent(jComboBox_products_edit_select, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jSpinner_products_edit_unitPrice))))
+                .addGap(166, 166, 166))
+        );
+        jPanel_products_editLayout.setVerticalGroup(
+            jPanel_products_editLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel_products_editLayout.createSequentialGroup()
+                .addGap(74, 74, 74)
+                .addGroup(jPanel_products_editLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel_products_edit_select)
+                    .addComponent(jComboBox_products_edit_select, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel_products_editLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField_products_edit_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel_products_edit_name))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel_products_editLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel_products_edit_unitPrice)
+                    .addComponent(jSpinner_products_edit_unitPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel_products_editLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane_products_edit_detail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel_products_edit_detail))
+                .addGap(23, 23, 23)
+                .addComponent(jButton_products_edit)
+                .addContainerGap(112, Short.MAX_VALUE))
+        );
+
+        jTabbedPane_products.addTab("Edit", jPanel_products_edit);
+
         javax.swing.GroupLayout jPanel_productsLayout = new javax.swing.GroupLayout(jPanel_products);
         jPanel_products.setLayout(jPanel_productsLayout);
         jPanel_productsLayout.setHorizontalGroup(
-                jPanel_productsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jTabbedPane_products)
+            jPanel_productsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jTabbedPane_products)
         );
         jPanel_productsLayout.setVerticalGroup(
-                jPanel_productsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jTabbedPane_products)
+            jPanel_productsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jTabbedPane_products)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 733, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                        .addGap(0, 0, Short.MAX_VALUE)
-                                        .addComponent(jPanel_products, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE)))
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 733, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel_products, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 427, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                        .addGap(0, 0, Short.MAX_VALUE)
-                                        .addComponent(jPanel_products, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE)))
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 435, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel_products, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton_products_addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_products_addActionPerformed
+        Product product = new Product();
+        product.setName(jTextField_products_add_name.getText());
+        product.setUnitPrice((int) jSpinner_products_add_unitPrice.getValue());
+        product.setDetail(jTextArea_products_add_detail.getText());
+
+        if (DataCache.productDao.add(product)) {
+            JOptionPane.showMessageDialog(this, "Added successfully");
+            jTextField_products_add_name.setText("");
+            jSpinner_products_add_unitPrice.setValue(0);
+            jTextArea_products_add_detail.setText("");
+            refreshProducts();
+        } else {
+            JOptionPane.showMessageDialog(this, "Error");
+        }
+    }//GEN-LAST:event_jButton_products_addActionPerformed
+
+    private void jButton_products_editActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_products_editActionPerformed
+        Product product = new Product();
+        product.setName(jTextField_products_edit_name.getText());
+        product.setUnitPrice((int) jSpinner_products_edit_unitPrice.getValue());
+        product.setDetail(jTextArea_products_edit_detail.getText());
+        product.setId(DataCache.products.get(jComboBox_products_edit_select.getSelectedIndex() - 1).getId());
+
+        if (DataCache.productDao.update(product)) {
+            JOptionPane.showMessageDialog(this, "Updated succeessfully");
+            jTextField_products_edit_name.setText("");
+            jSpinner_products_edit_unitPrice.setValue(0);
+            jTextArea_products_edit_detail.setText("");
+            refreshProducts();
+        } else {
+            JOptionPane.showMessageDialog(this, "Error");
+        }
+    }//GEN-LAST:event_jButton_products_editActionPerformed
+
+    private void jComboBox_products_edit_selectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_products_edit_selectActionPerformed
+        int selectedIndex = jComboBox_products_edit_select.getSelectedIndex();
+        if (selectedIndex == 0) {
+            jTextField_products_edit_name.setText("");
+            jSpinner_products_edit_unitPrice.setValue(0);
+            jTextArea_products_edit_detail.setText("");
+            return;
+        }
+
+        Product product = DataCache.products.get(selectedIndex - 1);
+        jTextField_products_edit_name.setText(product.getName());
+        jSpinner_products_edit_unitPrice.setValue(product.getUnitPrice());
+        jTextArea_products_edit_detail.setText(product.getDetail());
+    }//GEN-LAST:event_jComboBox_products_edit_selectActionPerformed
+
+    private void jButton_products_list_deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_products_list_deleteActionPerformed
+        int selectedRow = jTable_products_list.getSelectedRow();
+        if (DataCache.productDao.delete((int) jTable_products_list.getValueAt(selectedRow, 0))) {
+            JOptionPane.showMessageDialog(this, "Deleted successfully");
+            refreshProducts();
+        } else {
+            JOptionPane.showMessageDialog(this, "Error");
+        }
+    }//GEN-LAST:event_jButton_products_list_deleteActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton_products_add;
+    private javax.swing.JButton jButton_products_edit;
+    private javax.swing.JButton jButton_products_list_delete;
+    private javax.swing.JComboBox<String> jComboBox_products_edit_select;
     private javax.swing.JLabel jLabel_products_add_detail;
     private javax.swing.JLabel jLabel_products_add_name;
     private javax.swing.JLabel jLabel_products_add_unitPrice;
+    private javax.swing.JLabel jLabel_products_edit_detail;
+    private javax.swing.JLabel jLabel_products_edit_name;
+    private javax.swing.JLabel jLabel_products_edit_select;
+    private javax.swing.JLabel jLabel_products_edit_unitPrice;
     private javax.swing.JPanel jPanel_products;
     private javax.swing.JPanel jPanel_products_add;
+    private javax.swing.JPanel jPanel_products_edit;
     private javax.swing.JPanel jPanel_products_list;
     private javax.swing.JScrollPane jScrollPane_products_add_detail;
+    private javax.swing.JScrollPane jScrollPane_products_edit_detail;
     private javax.swing.JScrollPane jScrollPane_products_list;
+    private javax.swing.JSpinner jSpinner_products_add_unitPrice;
+    private javax.swing.JSpinner jSpinner_products_edit_unitPrice;
     private javax.swing.JTabbedPane jTabbedPane_products;
     private javax.swing.JTable jTable_products_list;
     private javax.swing.JTextArea jTextArea_products_add_detail;
+    private javax.swing.JTextArea jTextArea_products_edit_detail;
     private javax.swing.JTextField jTextField_products_add_name;
-    private javax.swing.JTextField jTextField_products_add_unitPrice;
+    private javax.swing.JTextField jTextField_products_edit_name;
     // End of variables declaration//GEN-END:variables
 }

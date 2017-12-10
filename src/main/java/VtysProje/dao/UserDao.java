@@ -73,8 +73,7 @@ public class UserDao {
             connection.openStatement();
 
             String sql = "INSERT INTO \"Users\"("
-                    + "first_name, last_name, user_name, password, address, phone_number, role_id, city_id) VALUES "
-                    + "("
+                    + "first_name, last_name, user_name, password, address, phone_number, role_id, city_id) VALUES " + "("
                     + "'" + user.getFirstName() + "'"
                     + ", '" + user.getLastName() + "'"
                     + ", '" + user.getUserName() + "'"

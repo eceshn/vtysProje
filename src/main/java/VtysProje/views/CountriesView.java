@@ -231,12 +231,9 @@ public class CountriesView extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton_countries_addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_countries_addActionPerformed
-        String countryName = jTextField_countries_add_name.getText();
-        int countryCode = (int) jSpinner_countries_add_code.getValue();
-
         Country country = new Country();
-        country.setName(countryName);
-        country.setCode(countryCode);
+        country.setName(jTextField_countries_add_name.getText());
+        country.setCode((int) jSpinner_countries_add_code.getValue());
 
         if (DataCache.countryDao.add(country)) {
             JOptionPane.showMessageDialog(this, "Added successfully");
@@ -249,12 +246,9 @@ public class CountriesView extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton_countries_addActionPerformed
 
     private void jButton_countries_editActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_countries_editActionPerformed
-        String countryName = jTextField_countries_edit_name.getText();
-        int countryCode = (int) jSpinner_countries_edit_code.getValue();
-
         Country country = new Country();
-        country.setName(countryName);
-        country.setCode(countryCode);
+        country.setName(jTextField_countries_edit_name.getText());
+        country.setCode((int) jSpinner_countries_edit_code.getValue());
         country.setId(DataCache.countries.get(jComboBox_countries_edit_select.getSelectedIndex() - 1).getId());
 
         if (DataCache.countryDao.update(country)) {
