@@ -478,7 +478,7 @@ public class UsersView extends javax.swing.JPanel {
             jTextField_users_edit_password.setText("");
             jTextArea_users_edit_address.setText("");
             jTextField_users_edit_phoneNumber.setText("");
-            jTextField_users_add_birthDay.setText("");
+            jTextField_users_edit_birthDay.setText("");
             refreshUsers();
         } else {
             JOptionPane.showMessageDialog(this, "Error");
