@@ -64,6 +64,8 @@ public class UsersView extends javax.swing.JPanel {
         jTextField_users_add_phoneNumber = new javax.swing.JTextField();
         jComboBox_users_add_role = new javax.swing.JComboBox<>();
         jLabel_users_add_role = new javax.swing.JLabel();
+        jLabel_users_add_birthDay = new javax.swing.JLabel();
+        jTextField_users_add_birthDay = new javax.swing.JTextField();
         jPanel_users_list = new javax.swing.JPanel();
         jScrollPane_users_list = new javax.swing.JScrollPane();
         jTable_users_list = new javax.swing.JTable();
@@ -89,6 +91,8 @@ public class UsersView extends javax.swing.JPanel {
         jLabel_users_edit_select = new javax.swing.JLabel();
         jComboBox_users_edit_role = new javax.swing.JComboBox<>();
         jLabel_users_edit_role1 = new javax.swing.JLabel();
+        jLabel_users_edit_birthDay = new javax.swing.JLabel();
+        jTextField_users_edit_birthDay = new javax.swing.JTextField();
 
         jLabel_users_add_username.setText("Username:");
 
@@ -121,6 +125,8 @@ public class UsersView extends javax.swing.JPanel {
 
         jLabel_users_add_role.setText("Role:");
 
+        jLabel_users_add_birthDay.setText("Birthday:");
+
         javax.swing.GroupLayout jPanel_users_addLayout = new javax.swing.GroupLayout(jPanel_users_add);
         jPanel_users_add.setLayout(jPanel_users_addLayout);
         jPanel_users_addLayout.setHorizontalGroup(
@@ -137,7 +143,8 @@ public class UsersView extends javax.swing.JPanel {
                             .addComponent(jLabel_users_add_address)
                             .addComponent(jLabel_users_add_phoneNumber)
                             .addComponent(jLabel_users_add_city)
-                            .addComponent(jLabel_users_add_role))
+                            .addComponent(jLabel_users_add_role)
+                            .addComponent(jLabel_users_add_birthDay))
                         .addGap(39, 39, 39)
                         .addGroup(jPanel_users_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jComboBox_users_add_city, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -147,7 +154,8 @@ public class UsersView extends javax.swing.JPanel {
                             .addComponent(jTextField_users_add_password, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane_users_add_address, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField_users_add_phoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox_users_add_role, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jComboBox_users_add_role, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField_users_add_birthDay, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel_users_addLayout.createSequentialGroup()
                         .addGap(218, 218, 218)
                         .addComponent(jButton_users_add, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -180,6 +188,10 @@ public class UsersView extends javax.swing.JPanel {
                 .addGroup(jPanel_users_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField_users_add_phoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel_users_add_phoneNumber))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel_users_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField_users_add_birthDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel_users_add_birthDay))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel_users_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jComboBox_users_add_city, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -190,21 +202,21 @@ public class UsersView extends javax.swing.JPanel {
                     .addComponent(jLabel_users_add_address))
                 .addGap(18, 18, 18)
                 .addComponent(jButton_users_add)
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addContainerGap(63, Short.MAX_VALUE))
         );
 
         jTabbedPane_users.addTab("Add", jPanel_users_add);
 
         jTable_users_list.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Id", "City", "Username", "First name", "Last name", "Password", "Address", "Phone Number", "Role"
+                "Id", "City", "Username", "First name", "Last name", "Password", "Address", "Phone Number", "Role", "Birthday"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -213,6 +225,7 @@ public class UsersView extends javax.swing.JPanel {
         });
         jTable_users_list.setColumnSelectionAllowed(true);
         jScrollPane_users_list.setViewportView(jTable_users_list);
+        jTable_users_list.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 
         jButton_users_list_delete.setText("Delete");
         jButton_users_list_delete.addActionListener(new java.awt.event.ActionListener() {
@@ -238,7 +251,7 @@ public class UsersView extends javax.swing.JPanel {
             jPanel_users_listLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel_users_listLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane_users_list, javax.swing.GroupLayout.DEFAULT_SIZE, 331, Short.MAX_VALUE)
+                .addComponent(jScrollPane_users_list, javax.swing.GroupLayout.DEFAULT_SIZE, 376, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton_users_list_delete)
                 .addContainerGap())
@@ -286,6 +299,8 @@ public class UsersView extends javax.swing.JPanel {
 
         jLabel_users_edit_role1.setText("Role:");
 
+        jLabel_users_edit_birthDay.setText("Birthday:");
+
         javax.swing.GroupLayout jPanel_users_editLayout = new javax.swing.GroupLayout(jPanel_users_edit);
         jPanel_users_edit.setLayout(jPanel_users_editLayout);
         jPanel_users_editLayout.setHorizontalGroup(
@@ -303,7 +318,8 @@ public class UsersView extends javax.swing.JPanel {
                             .addComponent(jLabel_users_edit_phoneNumber)
                             .addComponent(jLabel_users_edit_city)
                             .addComponent(jLabel_users_edit_select)
-                            .addComponent(jLabel_users_edit_role1))
+                            .addComponent(jLabel_users_edit_role1)
+                            .addComponent(jLabel_users_edit_birthDay))
                         .addGap(39, 39, 39)
                         .addGroup(jPanel_users_editLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jComboBox_users_edit_city, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -314,7 +330,8 @@ public class UsersView extends javax.swing.JPanel {
                             .addComponent(jScrollPane_users_edit_address, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField_users_edit_phoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jComboBox_users_edit_select, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox_users_edit_role, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jComboBox_users_edit_role, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField_users_edit_birthDay, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel_users_editLayout.createSequentialGroup()
                         .addGap(69, 69, 69)
                         .addComponent(jButton_users_edit, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -327,7 +344,7 @@ public class UsersView extends javax.swing.JPanel {
                 .addGroup(jPanel_users_editLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jComboBox_users_edit_select, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel_users_edit_select))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addGroup(jPanel_users_editLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jComboBox_users_edit_role, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel_users_edit_role1))
@@ -351,6 +368,10 @@ public class UsersView extends javax.swing.JPanel {
                 .addGroup(jPanel_users_editLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField_users_edit_phoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel_users_edit_phoneNumber))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel_users_editLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField_users_edit_birthDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel_users_edit_birthDay))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel_users_editLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jComboBox_users_edit_city, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -390,7 +411,7 @@ public class UsersView extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 427, Short.MAX_VALUE)
+            .addGap(0, 472, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -409,6 +430,7 @@ public class UsersView extends javax.swing.JPanel {
         user.setPhoneNumber(jTextField_users_add_phoneNumber.getText());
         user.setRoleId(DataCache.roles.get(jComboBox_users_add_role.getSelectedIndex() - 1).getId());
         user.setCityId(DataCache.cities.get(jComboBox_users_add_city.getSelectedIndex() - 1).getId());
+        user.setBirthDay(jTextField_users_add_birthDay.getText());
 
         if (DataCache.userDao.add(user)) {
             JOptionPane.showMessageDialog(this, "Added successfully");
@@ -418,6 +440,7 @@ public class UsersView extends javax.swing.JPanel {
             jTextField_users_add_password.setText("");
             jTextArea_users_add_address.setText("");
             jTextField_users_add_phoneNumber.setText("");
+            jTextField_users_add_birthDay.setText("");
             refreshUsers();
         } else {
             JOptionPane.showMessageDialog(this, "Error");
@@ -445,6 +468,7 @@ public class UsersView extends javax.swing.JPanel {
         user.setRoleId(DataCache.roles.get(jComboBox_users_edit_role.getSelectedIndex() - 1).getId());
         user.setCityId(DataCache.cities.get(jComboBox_users_edit_city.getSelectedIndex() - 1).getId());
         user.setId(DataCache.users.get(jComboBox_users_edit_select.getSelectedIndex() - 1).getId());
+        user.setBirthDay(jTextField_users_edit_birthDay.getText());
 
         if (DataCache.userDao.update(user)) {
             JOptionPane.showMessageDialog(this, "Updated successfully");
@@ -454,6 +478,7 @@ public class UsersView extends javax.swing.JPanel {
             jTextField_users_edit_password.setText("");
             jTextArea_users_edit_address.setText("");
             jTextField_users_edit_phoneNumber.setText("");
+            jTextField_users_add_birthDay.setText("");
             refreshUsers();
         } else {
             JOptionPane.showMessageDialog(this, "Error");
@@ -471,6 +496,7 @@ public class UsersView extends javax.swing.JPanel {
             jTextArea_users_edit_address.setText("");
             jTextField_users_edit_phoneNumber.setText("");
             jComboBox_users_edit_city.setSelectedIndex(0);
+            jTextField_users_edit_birthDay.setText("");
             return;
         }
 
@@ -483,6 +509,7 @@ public class UsersView extends javax.swing.JPanel {
         jTextArea_users_edit_address.setText(user.getAddress());
         jTextField_users_edit_phoneNumber.setText(user.getPhoneNumber());
         jComboBox_users_edit_city.setSelectedItem(user.getCity().getName());
+        jTextField_users_edit_birthDay.setText(user.getBirthDay());
     }//GEN-LAST:event_jComboBox_users_edit_selectActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -495,6 +522,7 @@ public class UsersView extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> jComboBox_users_edit_role;
     private javax.swing.JComboBox<String> jComboBox_users_edit_select;
     private javax.swing.JLabel jLabel_users_add_address;
+    private javax.swing.JLabel jLabel_users_add_birthDay;
     private javax.swing.JLabel jLabel_users_add_city;
     private javax.swing.JLabel jLabel_users_add_firstName;
     private javax.swing.JLabel jLabel_users_add_lastName;
@@ -503,6 +531,7 @@ public class UsersView extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel_users_add_role;
     private javax.swing.JLabel jLabel_users_add_username;
     private javax.swing.JLabel jLabel_users_edit_address;
+    private javax.swing.JLabel jLabel_users_edit_birthDay;
     private javax.swing.JLabel jLabel_users_edit_city;
     private javax.swing.JLabel jLabel_users_edit_firstName;
     private javax.swing.JLabel jLabel_users_edit_lastName;
@@ -522,11 +551,13 @@ public class UsersView extends javax.swing.JPanel {
     private javax.swing.JTable jTable_users_list;
     private javax.swing.JTextArea jTextArea_users_add_address;
     private javax.swing.JTextArea jTextArea_users_edit_address;
+    private javax.swing.JTextField jTextField_users_add_birthDay;
     private javax.swing.JTextField jTextField_users_add_firstName;
     private javax.swing.JTextField jTextField_users_add_lastName;
     private javax.swing.JTextField jTextField_users_add_password;
     private javax.swing.JTextField jTextField_users_add_phoneNumber;
     private javax.swing.JTextField jTextField_users_add_username;
+    private javax.swing.JTextField jTextField_users_edit_birthDay;
     private javax.swing.JTextField jTextField_users_edit_firstName;
     private javax.swing.JTextField jTextField_users_edit_lastName;
     private javax.swing.JTextField jTextField_users_edit_password;

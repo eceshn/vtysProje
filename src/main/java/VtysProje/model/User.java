@@ -1,11 +1,10 @@
 package VtysProje.model;
 
 /**
- * Created by 12043 on 9.12.2017
- * part of project vtysProje
+ * Created by 12043 on 9.12.2017 part of project vtysProje
  */
-
 public class User {
+
     private int id;
     private String firstName;
     private String lastName;
@@ -13,6 +12,7 @@ public class User {
     private String password;
     private String address;
     private String phoneNumber;
+    private String birthDay;
     private int roleId;
     private int cityId;
 
@@ -22,7 +22,7 @@ public class User {
     public User() {
     }
 
-    public User(int id, String firstName, String lastName, String userName, String password, String address, String phoneNumber, int roleId, int cityId, Role role, City city) {
+    public User(int id, String firstName, String lastName, String userName, String password, String address, String phoneNumber, String birthDay, int roleId, int cityId, Role role, City city) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -30,6 +30,7 @@ public class User {
         this.password = password;
         this.address = address;
         this.phoneNumber = phoneNumber;
+        this.birthDay = birthDay;
         this.roleId = roleId;
         this.cityId = cityId;
         this.role = role;
@@ -122,5 +123,13 @@ public class User {
 
     public void setCity(City city) {
         this.city = city;
+    }
+
+    public String getBirthDay() {
+        return birthDay;
+    }
+
+    public void setBirthDay(String birthDay) {
+        this.birthDay = birthDay;
     }
 }

@@ -28,7 +28,18 @@ public class UserDao {
         try {
             connection.openStatement();
 
-            String sql = "SELECT * FROM \"Users\"";
+            String sql = "SELECT "
+                    + "id"
+                    + ", first_name"
+                    + ", last_name"
+                    + ", user_name"
+                    + ", password"
+                    + ", address"
+                    + ", phone_number"
+                    + ", role_id"
+                    + ", city_id"
+                    + ", TO_CHAR(birthday, 'mm/dd/yyyy') AS birthday"
+                    + " FROM \"Users\"";
             ResultSet resultSet = connection.executeSelectQuery(sql);
 
             while (!resultSet.isClosed() && resultSet.next()) {
@@ -51,7 +62,18 @@ public class UserDao {
         try {
             connection.openStatement();
 
-            String sql = "SELECT * FROM \"Users\" WHERE id=" + id;
+            String sql = "SELECT "
+                    + "id"
+                    + ", first_name"
+                    + ", last_name"
+                    + ", user_name"
+                    + ", password"
+                    + ", address"
+                    + ", phone_number"
+                    + ", role_id"
+                    + ", city_id"
+                    + ", TO_CHAR(birthday, 'mm/dd/yyyy') AS birthday"
+                    + " FROM \"Users\" WHERE id=" + id;
             ResultSet resultSet = connection.executeSelectQuery(sql);
             if (!resultSet.isClosed() && resultSet.next()) {
                 user = Converter.initUserFromResultSet(resultSet);
@@ -73,7 +95,7 @@ public class UserDao {
             connection.openStatement();
 
             String sql = "INSERT INTO \"Users\"("
-                    + "first_name, last_name, user_name, password, address, phone_number, role_id, city_id) VALUES " + "("
+                    + "first_name, last_name, user_name, password, address, phone_number, role_id, city_id, birthday) VALUES " + "("
                     + "'" + user.getFirstName() + "'"
                     + ", '" + user.getLastName() + "'"
                     + ", '" + user.getUserName() + "'"
@@ -82,6 +104,7 @@ public class UserDao {
                     + ", '" + user.getPhoneNumber() + "'"
                     + ", " + user.getRoleId()
                     + ", " + user.getCityId()
+                    + ", TO_DATE('" + user.getBirthDay() + "', 'mm/dd/yyyy')"
                     + ")";
 
             added = connection.executeUpdateQuery(sql);
@@ -109,6 +132,7 @@ public class UserDao {
                     + ", phone_number='" + user.getPhoneNumber() + "'"
                     + ", role_id=" + user.getRoleId()
                     + ", city_id=" + user.getCityId()
+                    + ", birthday=TO_DATE('" + user.getBirthDay() + "', 'mm/dd/yyyy')"
                     + " WHERE id=" + user.getId();
 
             updated = connection.executeUpdateQuery(sql);

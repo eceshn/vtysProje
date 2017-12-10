@@ -5,11 +5,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- * Created by 12043 on 9.12.2017
- * part of project vtysProje
+ * Created by 12043 on 9.12.2017 part of project vtysProje
  */
-
 public class Converter {
+
     public static Country initCountryFromResultSet(ResultSet resultSet) {
         Country country = new Country();
         try {
@@ -49,6 +48,7 @@ public class Converter {
             user.setPhoneNumber(resultSet.getString("phone_number"));
             user.setRoleId(resultSet.getInt("role_id"));
             user.setCityId(resultSet.getInt("city_id"));
+            user.setBirthDay(resultSet.getString("birthday"));
         } catch (SQLException e) {
             e.printStackTrace();
         }

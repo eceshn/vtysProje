@@ -30,6 +30,7 @@ CREATE TABLE "Users" (
 	"phone_number" VARCHAR(12),
 	"role_id" INTEGER NOT NULL,
 	"city_id" INTEGER NOT NULL,
+	"birthday" DATE,
 	CONSTRAINT "Users_role_id_fk" FOREIGN KEY ("role_id")
 		REFERENCES "Roles" ("id") MATCH SIMPLE
 		ON UPDATE SET NULL
@@ -58,3 +59,12 @@ CREATE TABLE "Stocks" (
 		ON UPDATE CASCADE
 		ON DELETE CASCADE
 );
+
+CREATE TABLE "Products_In_Stock" (
+	"stock_id" INTEGER,
+	"serial" SERIAL,
+	CONSTRAINT "Products_In_Stock_stock_id_fk" FOREIGN KEY ("stock_id")
+		REFERENCES "Stocks" ("id") MATCH SIMPLE
+		ON UPDATE CASCADE
+		ON DELETE CASCADE
+) INHERITS ("Products");

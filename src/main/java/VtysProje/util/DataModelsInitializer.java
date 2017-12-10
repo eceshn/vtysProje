@@ -32,7 +32,7 @@ public class DataModelsInitializer {
     }
 
     public static DefaultTableModel initUsersTableModel(List<User> users) {
-        DefaultTableModel usersModel = new DefaultTableModel(new Object[][]{}, new String[]{"ID", "City", "Username", "First name", "Last name", "Password", "Address", "Phone number", "Role"});
+        DefaultTableModel usersModel = new DefaultTableModel(new Object[][]{}, new String[]{"ID", "City", "Username", "First name", "Last name", "Password", "Address", "Phone number", "Role", "Birthday"});
 
         for (User user : users) {
             usersModel.addRow(new Object[]{
@@ -44,7 +44,8 @@ public class DataModelsInitializer {
                 user.getPassword(),
                 user.getAddress(),
                 user.getPhoneNumber(),
-                user.getRole().getRole_name()
+                user.getRole().getRole_name(),
+                user.getBirthDay()
             });
         }
 
