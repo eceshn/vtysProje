@@ -1,18 +1,16 @@
 package VtysProje.util;
 
 import VtysProje.model.*;
-
-import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
 import java.util.List;
 import java.util.Vector;
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 
 /**
- * Created by 12043 on 9.12.2017
- * part of project vtysProje
+ * Created by 12043 on 9.12.2017 part of project vtysProje
  */
-
 public class DataModelsInitializer {
+
     public static DefaultTableModel initCountriesTableModel(List<Country> countries) {
         DefaultTableModel countriesModel = new DefaultTableModel(new Object[][]{}, new String[]{"ID", "Name", "Code"});
 
@@ -38,15 +36,15 @@ public class DataModelsInitializer {
 
         for (User user : users) {
             usersModel.addRow(new Object[]{
-                    user.getId(),
-                    user.getCity().getName(),
-                    user.getUserName(),
-                    user.getFirstName(),
-                    user.getLastName(),
-                    user.getPassword(),
-                    user.getAddress(),
-                    user.getPhoneNumber(),
-                    user.getRole().getRole_name()
+                user.getId(),
+                user.getCity().getName(),
+                user.getUserName(),
+                user.getFirstName(),
+                user.getLastName(),
+                user.getPassword(),
+                user.getAddress(),
+                user.getPhoneNumber(),
+                user.getRole().getRole_name()
             });
         }
 
@@ -65,14 +63,14 @@ public class DataModelsInitializer {
 
     public static DefaultTableModel initStocksTableModel(List<Stock> stocks) {
         DefaultTableModel stocksModel = new DefaultTableModel(new Object[][]{}, new String[]{
-                "ID", "Stock name", "Unit price", "Unit price in stock", "Quantity", "Detail"
+            "ID", "Stock name", "Unit price", "Unit price in stock", "Quantity", "Detail"
         });
 
         for (Stock stock : stocks) {
             stocksModel.addRow(new Object[]{
-                    stock.getId(), stock.getName(), stock.getProduct().getName(),
-                    stock.getProduct().getUnitPrice(), stock.getUnitPrice(),
-                    stock.getQuantity(), stock.getProduct().getDetail()
+                stock.getId(), stock.getName(), stock.getProduct().getName(),
+                stock.getProduct().getUnitPrice(), stock.getUnitPrice(),
+                stock.getQuantity(), stock.getProduct().getDetail()
             });
         }
 
@@ -85,6 +83,40 @@ public class DataModelsInitializer {
 
         for (Country country : countries) {
             names.add(country.getName());
+        }
+
+        return new DefaultComboBoxModel<>(names);
+    }
+
+    public static DefaultComboBoxModel<String> initCitiesComboBoxModel(List<City> cities) {
+        Vector<String> names = new Vector<>();
+        names.add("Select...");
+
+        for (City city : cities) {
+            names.add(city.getName());
+        }
+
+        return new DefaultComboBoxModel<>(names);
+    }
+
+    public static DefaultComboBoxModel<String> initRolesComboboxModel(List<Role> roles) {
+        Vector<String> names = new Vector<>();
+        names.add("Select...");
+
+        for (Role role : roles) {
+            names.add(role.getRole_name());
+        }
+
+        return new DefaultComboBoxModel<>(names);
+    }
+
+    public static DefaultComboBoxModel<String> initUsersComboboxModel(List<User> users) {
+        Vector<String> names = new Vector<>();
+
+        names.add("Select...");
+
+        for (User user : users) {
+            names.add(user.getUserName());
         }
 
         return new DefaultComboBoxModel<>(names);

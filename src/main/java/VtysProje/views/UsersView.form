@@ -158,9 +158,6 @@
               </Layout>
               <SubComponents>
                 <Component class="javax.swing.JTextField" name="jTextField_users_add_username">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Username"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel_users_add_username">
                   <Properties>
@@ -173,14 +170,14 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField_users_add_firstName">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="First name"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JButton" name="jButton_users_add">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Add"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_users_addActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JComboBox" name="jComboBox_users_add_city">
                   <Properties>
@@ -203,9 +200,6 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField_users_add_lastName">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Last name"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel_users_add_lastName">
                   <Properties>
@@ -218,9 +212,6 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField_users_add_password">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Password"/>
-                  </Properties>
                 </Component>
                 <Container class="javax.swing.JScrollPane" name="jScrollPane_users_add_address">
                   <AuxValues>
@@ -233,7 +224,6 @@
                       <Properties>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="rows" type="int" value="5"/>
-                        <Property name="text" type="java.lang.String" value="Address"/>
                       </Properties>
                     </Component>
                   </SubComponents>
@@ -249,9 +239,6 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField_users_add_phoneNumber">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Phone number"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JComboBox" name="jComboBox_users_add_role">
                   <Properties>
@@ -285,9 +272,15 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
+                      <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane_users_list" pref="704" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jScrollPane_users_list" alignment="0" pref="704" max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jButton_users_list_delete" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -296,8 +289,10 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane_users_list" min="-2" pref="244" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="jScrollPane_users_list" pref="331" max="32767" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="jButton_users_list_delete" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -333,6 +328,244 @@
                     </Component>
                   </SubComponents>
                 </Container>
+                <Component class="javax.swing.JButton" name="jButton_users_list_delete">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Delete"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_users_list_deleteActionPerformed"/>
+                  </Events>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Container class="javax.swing.JPanel" name="jPanel_users_edit">
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+                  <JTabbedPaneConstraints tabName="Edit">
+                    <Property name="tabTitle" type="java.lang.String" value="Edit"/>
+                  </JTabbedPaneConstraints>
+                </Constraint>
+              </Constraints>
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="148" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jLabel_users_edit_username" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel_users_edit_firstName" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel_users_edit_lastName" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel_users_edit_password" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel_users_edit_address" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel_users_edit_phoneNumber" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel_users_edit_city" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel_users_edit_select" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel_users_edit_role1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jComboBox_users_edit_city" alignment="0" min="-2" pref="81" max="-2" attributes="0"/>
+                                      <Component id="jTextField_users_edit_username" alignment="0" min="-2" pref="81" max="-2" attributes="0"/>
+                                      <Component id="jTextField_users_edit_firstName" alignment="0" min="-2" pref="81" max="-2" attributes="0"/>
+                                      <Component id="jTextField_users_edit_lastName" alignment="0" min="-2" pref="81" max="-2" attributes="0"/>
+                                      <Component id="jTextField_users_edit_password" alignment="0" min="-2" pref="81" max="-2" attributes="0"/>
+                                      <Component id="jScrollPane_users_edit_address" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jTextField_users_edit_phoneNumber" alignment="0" min="-2" pref="81" max="-2" attributes="0"/>
+                                      <Component id="jComboBox_users_edit_select" alignment="0" min="-2" pref="81" max="-2" attributes="0"/>
+                                      <Component id="jComboBox_users_edit_role" alignment="0" min="-2" pref="81" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
+                                  <Component id="jButton_users_edit" min="-2" pref="80" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace pref="232" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jComboBox_users_edit_select" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel_users_edit_select" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace pref="7" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jComboBox_users_edit_role" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel_users_edit_role1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jTextField_users_edit_username" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel_users_edit_username" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jTextField_users_edit_firstName" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel_users_edit_firstName" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jTextField_users_edit_lastName" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel_users_edit_lastName" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jTextField_users_edit_password" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel_users_edit_password" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jTextField_users_edit_phoneNumber" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel_users_edit_phoneNumber" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jComboBox_users_edit_city" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel_users_edit_city" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jScrollPane_users_edit_address" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel_users_edit_address" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jButton_users_edit" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JTextField" name="jTextField_users_edit_username">
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel_users_edit_username">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Username:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel_users_edit_firstName">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="First name:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="jTextField_users_edit_firstName">
+                </Component>
+                <Component class="javax.swing.JButton" name="jButton_users_edit">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Save"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_users_editActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JComboBox" name="jComboBox_users_edit_city">
+                  <Properties>
+                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                      <StringArray count="4">
+                        <StringItem index="0" value="Ankara"/>
+                        <StringItem index="1" value="London"/>
+                        <StringItem index="2" value="New York"/>
+                        <StringItem index="3" value="Fizan"/>
+                      </StringArray>
+                    </Property>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                  </AuxValues>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel_users_edit_city">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="City:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="jTextField_users_edit_lastName">
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel_users_edit_lastName">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Last name:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel_users_edit_password">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Password:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="jTextField_users_edit_password">
+                </Component>
+                <Container class="javax.swing.JScrollPane" name="jScrollPane_users_edit_address">
+                  <AuxValues>
+                    <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                  </AuxValues>
+
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                  <SubComponents>
+                    <Component class="javax.swing.JTextArea" name="jTextArea_users_edit_address">
+                      <Properties>
+                        <Property name="columns" type="int" value="20"/>
+                        <Property name="rows" type="int" value="5"/>
+                      </Properties>
+                    </Component>
+                  </SubComponents>
+                </Container>
+                <Component class="javax.swing.JLabel" name="jLabel_users_edit_address">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Address:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel_users_edit_phoneNumber">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Phone number:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="jTextField_users_edit_phoneNumber">
+                </Component>
+                <Component class="javax.swing.JComboBox" name="jComboBox_users_edit_select">
+                  <Properties>
+                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                      <StringArray count="3">
+                        <StringItem index="0" value="User 1"/>
+                        <StringItem index="1" value="User 2"/>
+                        <StringItem index="2" value="User 3"/>
+                      </StringArray>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBox_users_edit_selectActionPerformed"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                  </AuxValues>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel_users_edit_select">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Editing User:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JComboBox" name="jComboBox_users_edit_role">
+                  <Properties>
+                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                      <StringArray count="2">
+                        <StringItem index="0" value="Employee"/>
+                        <StringItem index="1" value="Customer"/>
+                      </StringArray>
+                    </Property>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                  </AuxValues>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel_users_edit_role1">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Role:"/>
+                  </Properties>
+                </Component>
               </SubComponents>
             </Container>
           </SubComponents>

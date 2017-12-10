@@ -1,23 +1,23 @@
 package VtysProje.views;
 
-import VtysProje.dao.CityDao;
 import VtysProje.model.City;
+import VtysProje.util.DataCache;
 import VtysProje.util.DataModelsInitializer;
-import java.util.ArrayList;
-import java.util.List;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 
 /**
  * Created by 12043 on 8.12.2017 part of project vtysProje
  */
 public class CitiesView extends javax.swing.JPanel {
 
-    private CityDao cityDao = new CityDao();
-
-    private List<City> cities = new ArrayList<>();
-
     private void refreshCities() {
-        cities = cityDao.getAll();
-        jTable_cities_list.setModel(DataModelsInitializer.initCitiesTableModel(cities));
+        DataCache.refreshCities();
+        jTable_cities_list.setModel(DataModelsInitializer.initCitiesTableModel(DataCache.cities));
+        jComboBox_cities_edit_select.setModel(DataModelsInitializer.initCitiesComboBoxModel(DataCache.cities));
+        DefaultComboBoxModel countriesModel = DataModelsInitializer.initCountriesComboBoxModel(DataCache.countries);
+        jComboBox_cities_add_country.setModel(countriesModel);
+        jComboBox_cities_edit_country.setModel(countriesModel);
     }
 
     /**
@@ -50,109 +50,212 @@ public class CitiesView extends javax.swing.JPanel {
         jPanel_cities_list = new javax.swing.JPanel();
         jScrollPane_cities_list = new javax.swing.JScrollPane();
         jTable_cities_list = new javax.swing.JTable();
+        jButton_cities_list_delete = new javax.swing.JButton();
+        jPanel_cities_edit = new javax.swing.JPanel();
+        jButton_cities_edit = new javax.swing.JButton();
+        jComboBox_cities_edit_country = new javax.swing.JComboBox<>();
+        jLabel_cities_edit_country = new javax.swing.JLabel();
+        jSpinner_cities_edit_code = new javax.swing.JSpinner();
+        jTextField_cities_edit_name = new javax.swing.JTextField();
+        jLabel_cities_edit_name = new javax.swing.JLabel();
+        jLabel_cities_edit_code = new javax.swing.JLabel();
+        jComboBox_cities_edit_select = new javax.swing.JComboBox<>();
+        jLabel_cities_edit_select = new javax.swing.JLabel();
 
         jLabel_cities_add_name.setText("City name:");
 
         jLabel_cities_add_code.setText("City code:");
 
         jButton_cities_add.setText("Add");
+        jButton_cities_add.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_cities_addActionPerformed(evt);
+            }
+        });
 
-        jComboBox_cities_add_country.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Turkey", "Iraq", "US", "England"}));
+        jComboBox_cities_add_country.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Turkey", "Iraq", "US", "England" }));
 
         jLabel_cities_add_country.setText("Country:");
 
         javax.swing.GroupLayout jPanel_cities_addLayout = new javax.swing.GroupLayout(jPanel_cities_add);
         jPanel_cities_add.setLayout(jPanel_cities_addLayout);
         jPanel_cities_addLayout.setHorizontalGroup(
-                jPanel_cities_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel_cities_addLayout.createSequentialGroup()
-                                .addGroup(jPanel_cities_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(jPanel_cities_addLayout.createSequentialGroup()
-                                                .addGap(260, 260, 260)
-                                                .addGroup(jPanel_cities_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(jLabel_cities_add_name)
-                                                        .addComponent(jLabel_cities_add_code)
-                                                        .addComponent(jLabel_cities_add_country))
-                                                .addGap(39, 39, 39)
-                                                .addGroup(jPanel_cities_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(jSpinner_cities_add_code, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
-                                                        .addComponent(jTextField_cities_add_name, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
-                                                        .addComponent(jComboBox_cities_add_country, 0, 82, Short.MAX_VALUE)))
-                                        .addGroup(jPanel_cities_addLayout.createSequentialGroup()
-                                                .addGap(294, 294, 294)
-                                                .addComponent(jButton_cities_add, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(288, 288, 288))
+            jPanel_cities_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel_cities_addLayout.createSequentialGroup()
+                .addGroup(jPanel_cities_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel_cities_addLayout.createSequentialGroup()
+                        .addGap(260, 260, 260)
+                        .addGroup(jPanel_cities_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel_cities_add_name)
+                            .addComponent(jLabel_cities_add_code)
+                            .addComponent(jLabel_cities_add_country))
+                        .addGap(39, 39, 39)
+                        .addGroup(jPanel_cities_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jSpinner_cities_add_code, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
+                            .addComponent(jTextField_cities_add_name, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
+                            .addComponent(jComboBox_cities_add_country, 0, 82, Short.MAX_VALUE)))
+                    .addGroup(jPanel_cities_addLayout.createSequentialGroup()
+                        .addGap(294, 294, 294)
+                        .addComponent(jButton_cities_add, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(288, 288, 288))
         );
         jPanel_cities_addLayout.setVerticalGroup(
-                jPanel_cities_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel_cities_addLayout.createSequentialGroup()
-                                .addGap(92, 92, 92)
-                                .addGroup(jPanel_cities_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jTextField_cities_add_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel_cities_add_name))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel_cities_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jLabel_cities_add_code)
-                                        .addComponent(jSpinner_cities_add_code, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel_cities_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jComboBox_cities_add_country, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel_cities_add_country))
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton_cities_add)
-                                .addContainerGap(186, Short.MAX_VALUE))
+            jPanel_cities_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel_cities_addLayout.createSequentialGroup()
+                .addGap(92, 92, 92)
+                .addGroup(jPanel_cities_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField_cities_add_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel_cities_add_name))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel_cities_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel_cities_add_code)
+                    .addComponent(jSpinner_cities_add_code, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel_cities_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBox_cities_add_country, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel_cities_add_country))
+                .addGap(18, 18, 18)
+                .addComponent(jButton_cities_add)
+                .addContainerGap(188, Short.MAX_VALUE))
         );
 
         jTabbedPane_cities.addTab("Add", jPanel_cities_add);
 
         jTable_cities_list.setModel(new javax.swing.table.DefaultTableModel(
-                new Object[][]{
-                    {null, null, null, null}
-                },
-                new String[]{
-                    "Id", "Name", "Code", "Country"
-                }
+            new Object [][] {
+                {null, null, null, null}
+            },
+            new String [] {
+                "Id", "Name", "Code", "Country"
+            }
         ) {
-            boolean[] canEdit = new boolean[]{
+            boolean[] canEdit = new boolean [] {
                 false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit[columnIndex];
+                return canEdit [columnIndex];
             }
         });
         jTable_cities_list.setColumnSelectionAllowed(true);
         jScrollPane_cities_list.setViewportView(jTable_cities_list);
 
+        jButton_cities_list_delete.setText("Delete");
+        jButton_cities_list_delete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_cities_list_deleteActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel_cities_listLayout = new javax.swing.GroupLayout(jPanel_cities_list);
         jPanel_cities_list.setLayout(jPanel_cities_listLayout);
         jPanel_cities_listLayout.setHorizontalGroup(
-                jPanel_cities_listLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel_cities_listLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jScrollPane_cities_list, javax.swing.GroupLayout.DEFAULT_SIZE, 704, Short.MAX_VALUE)
-                                .addContainerGap())
+            jPanel_cities_listLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel_cities_listLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel_cities_listLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane_cities_list, javax.swing.GroupLayout.DEFAULT_SIZE, 704, Short.MAX_VALUE)
+                    .addGroup(jPanel_cities_listLayout.createSequentialGroup()
+                        .addComponent(jButton_cities_list_delete)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel_cities_listLayout.setVerticalGroup(
-                jPanel_cities_listLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel_cities_listLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jScrollPane_cities_list, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            jPanel_cities_listLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel_cities_listLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane_cities_list, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton_cities_list_delete)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPane_cities.addTab("List", jPanel_cities_list);
         jPanel_cities_list.getAccessibleContext().setAccessibleName("");
 
+        jButton_cities_edit.setText("Save");
+        jButton_cities_edit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_cities_editActionPerformed(evt);
+            }
+        });
+
+        jComboBox_cities_edit_country.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Turkey", "Iraq", "US", "England" }));
+
+        jLabel_cities_edit_country.setText("Country:");
+
+        jLabel_cities_edit_name.setText("City name:");
+
+        jLabel_cities_edit_code.setText("City code:");
+
+        jComboBox_cities_edit_select.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "City 1", "City 2", "City3", "City4" }));
+        jComboBox_cities_edit_select.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox_cities_edit_selectActionPerformed(evt);
+            }
+        });
+
+        jLabel_cities_edit_select.setText("Editing City:");
+
+        javax.swing.GroupLayout jPanel_cities_editLayout = new javax.swing.GroupLayout(jPanel_cities_edit);
+        jPanel_cities_edit.setLayout(jPanel_cities_editLayout);
+        jPanel_cities_editLayout.setHorizontalGroup(
+            jPanel_cities_editLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel_cities_editLayout.createSequentialGroup()
+                .addGroup(jPanel_cities_editLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel_cities_editLayout.createSequentialGroup()
+                        .addGap(260, 260, 260)
+                        .addGroup(jPanel_cities_editLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel_cities_edit_name)
+                            .addComponent(jLabel_cities_edit_code)
+                            .addComponent(jLabel_cities_edit_country)
+                            .addComponent(jLabel_cities_edit_select))
+                        .addGap(39, 39, 39)
+                        .addGroup(jPanel_cities_editLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jSpinner_cities_edit_code, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
+                            .addComponent(jTextField_cities_edit_name, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
+                            .addComponent(jComboBox_cities_edit_country, 0, 76, Short.MAX_VALUE)
+                            .addComponent(jComboBox_cities_edit_select, 0, 76, Short.MAX_VALUE)))
+                    .addGroup(jPanel_cities_editLayout.createSequentialGroup()
+                        .addGap(294, 294, 294)
+                        .addComponent(jButton_cities_edit, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(288, 288, 288))
+        );
+        jPanel_cities_editLayout.setVerticalGroup(
+            jPanel_cities_editLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel_cities_editLayout.createSequentialGroup()
+                .addGap(98, 98, 98)
+                .addGroup(jPanel_cities_editLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBox_cities_edit_select, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel_cities_edit_select))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel_cities_editLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField_cities_edit_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel_cities_edit_name))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel_cities_editLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel_cities_edit_code)
+                    .addComponent(jSpinner_cities_edit_code, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel_cities_editLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBox_cities_edit_country, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel_cities_edit_country))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton_cities_edit)
+                .addContainerGap(157, Short.MAX_VALUE))
+        );
+
+        jTabbedPane_cities.addTab("Edit", jPanel_cities_edit);
+
         javax.swing.GroupLayout jPanel_citiesLayout = new javax.swing.GroupLayout(jPanel_cities);
         jPanel_cities.setLayout(jPanel_citiesLayout);
         jPanel_citiesLayout.setHorizontalGroup(
-                jPanel_citiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jTabbedPane_cities)
+            jPanel_citiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jTabbedPane_cities)
         );
         jPanel_citiesLayout.setVerticalGroup(
-                jPanel_citiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jTabbedPane_cities)
+            jPanel_citiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jTabbedPane_cities)
         );
 
         jTabbedPane_cities.getAccessibleContext().setAccessibleName("Cites");
@@ -160,38 +263,108 @@ public class CitiesView extends javax.swing.JPanel {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 733, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                        .addGap(0, 0, Short.MAX_VALUE)
-                                        .addComponent(jPanel_cities, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE)))
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 733, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel_cities, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 427, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                        .addGap(0, 0, Short.MAX_VALUE)
-                                        .addComponent(jPanel_cities, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE)))
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 429, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel_cities, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton_cities_addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_cities_addActionPerformed
+        City city = new City();
+
+        city.setName(jTextField_cities_add_name.getText());
+        city.setCode((int) jSpinner_cities_add_code.getValue());
+        city.setCountryId(DataCache.countries.get(jComboBox_cities_add_country.getSelectedIndex() - 1).getId());
+
+        if (DataCache.cityDao.add(city)) {
+            JOptionPane.showMessageDialog(this, "Added successfully");
+            jTextField_cities_add_name.setText("");
+            jSpinner_cities_add_code.setValue(0);
+            refreshCities();
+        } else {
+            JOptionPane.showMessageDialog(this, "Error");
+        }
+    }//GEN-LAST:event_jButton_cities_addActionPerformed
+
+    private void jButton_cities_list_deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_cities_list_deleteActionPerformed
+        int selectedIndex = jTable_cities_list.getSelectedRow();
+        if (DataCache.cityDao.delete((int) jTable_cities_list.getValueAt(selectedIndex, 0))) {
+            JOptionPane.showMessageDialog(this, "Deleted successfully");
+            refreshCities();
+        } else {
+            JOptionPane.showMessageDialog(this, "Error");
+        }
+    }//GEN-LAST:event_jButton_cities_list_deleteActionPerformed
+
+    private void jButton_cities_editActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_cities_editActionPerformed
+        City city = new City();
+        city.setName(jTextField_cities_edit_name.getText());
+        city.setCode((int) jSpinner_cities_edit_code.getValue());
+        city.setCountryId(DataCache.countries.get(jComboBox_cities_edit_country.getSelectedIndex() - 1).getId());
+        city.setId(DataCache.cities.get(jComboBox_cities_edit_select.getSelectedIndex() - 1).getId());
+
+        if (DataCache.cityDao.update(city)) {
+            JOptionPane.showMessageDialog(this, "Updated successfully");
+            jTextField_cities_edit_name.setText("");
+            jSpinner_cities_edit_code.setValue(0);
+            refreshCities();
+        } else {
+            JOptionPane.showMessageDialog(this, "Error");
+        }
+    }//GEN-LAST:event_jButton_cities_editActionPerformed
+
+    private void jComboBox_cities_edit_selectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_cities_edit_selectActionPerformed
+        int selectedIndex = jComboBox_cities_edit_select.getSelectedIndex();
+        if (selectedIndex == 0) {
+            jTextField_cities_edit_name.setText("");
+            jSpinner_cities_edit_code.setValue(0);
+            jComboBox_cities_edit_country.setSelectedIndex(0);
+            return;
+        }
+
+        City city = DataCache.cities.get(selectedIndex - 1);
+        jTextField_cities_edit_name.setText(city.getName());
+        jSpinner_cities_edit_code.setValue(city.getCode());
+        jComboBox_cities_edit_country.setSelectedItem(city.getCountry().getName());
+    }//GEN-LAST:event_jComboBox_cities_edit_selectActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton_cities_add;
+    private javax.swing.JButton jButton_cities_edit;
+    private javax.swing.JButton jButton_cities_list_delete;
     private javax.swing.JComboBox<String> jComboBox_cities_add_country;
+    private javax.swing.JComboBox<String> jComboBox_cities_edit_country;
+    private javax.swing.JComboBox<String> jComboBox_cities_edit_select;
     private javax.swing.JLabel jLabel_cities_add_code;
     private javax.swing.JLabel jLabel_cities_add_country;
     private javax.swing.JLabel jLabel_cities_add_name;
+    private javax.swing.JLabel jLabel_cities_edit_code;
+    private javax.swing.JLabel jLabel_cities_edit_country;
+    private javax.swing.JLabel jLabel_cities_edit_name;
+    private javax.swing.JLabel jLabel_cities_edit_select;
     private javax.swing.JPanel jPanel_cities;
     private javax.swing.JPanel jPanel_cities_add;
+    private javax.swing.JPanel jPanel_cities_edit;
     private javax.swing.JPanel jPanel_cities_list;
     private javax.swing.JScrollPane jScrollPane_cities_list;
     private javax.swing.JSpinner jSpinner_cities_add_code;
+    private javax.swing.JSpinner jSpinner_cities_edit_code;
     private javax.swing.JTabbedPane jTabbedPane_cities;
     private javax.swing.JTable jTable_cities_list;
     private javax.swing.JTextField jTextField_cities_add_name;
+    private javax.swing.JTextField jTextField_cities_edit_name;
     // End of variables declaration//GEN-END:variables
 }

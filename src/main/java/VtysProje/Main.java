@@ -29,6 +29,7 @@ public class Main extends javax.swing.JFrame {
         jTabbedPane_entites.addTab("Products", new ProductsView());
         jTabbedPane_entites.addTab("Stocks", new StocksView());
         jTabbedPane_entites.addTab("Products In Stock", new ProductsInStockView());
+        pack();
     }
 
     /**
@@ -43,6 +44,7 @@ public class Main extends javax.swing.JFrame {
         jTabbedPane_entites = new javax.swing.JTabbedPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Simple CRUD");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
