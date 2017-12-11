@@ -68,3 +68,20 @@ CREATE TABLE "Products_In_Stock" (
 		ON UPDATE CASCADE
 		ON DELETE CASCADE
 ) INHERITS ("Products");
+
+CREATE TABLE "Country_Archive" (
+	"id" INTEGER,
+	"name" VARCHAR,
+	"code" INTEGER
+);
+
+CREATE FUNCTION moveDeleted() RETURNS trigger AS 
+$$
+    BEGIN
+       INSERT INTO "Country_Archive" VALUES(OLD.id, OLD.name, OLD.code);
+       RETURN OLD;
+    END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER "Countries_tg" BEFORE DELETE ON "Countries"
+	FOR EACH ROW EXECUTE PROCEDURE moveDeleted();
