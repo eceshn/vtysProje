@@ -5,7 +5,7 @@
 -- Dumped from database version 9.6.6
 -- Dumped by pg_dump version 9.6.6
 
--- Started on 2017-12-11 11:26:24
+-- Started on 2017-12-11 14:05:20
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -399,11 +399,9 @@ ALTER TABLE ONLY "Users" ALTER COLUMN id SET DEFAULT nextval('"Users_id_seq"'::r
 -- Data for Name: Cities; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY "Cities" (id, name, code, country_id) FROM stdin;
-1	Ankara	6	1
-2	Washington	25	2
-3	Berlin	52	5
-\.
+INSERT INTO "Cities" VALUES (1, 'Ankara', 6, 1);
+INSERT INTO "Cities" VALUES (2, 'Washington', 25, 2);
+INSERT INTO "Cities" VALUES (3, 'Berlin', 52, 5);
 
 
 --
@@ -421,11 +419,9 @@ SELECT pg_catalog.setval('"Cities_id_seq"', 4, true);
 -- Data for Name: Countries; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY "Countries" (id, name, code) FROM stdin;
-1	Turkey	90
-2	US	1
-5	Germany	15
-\.
+INSERT INTO "Countries" VALUES (1, 'Turkey', 90);
+INSERT INTO "Countries" VALUES (2, 'US', 1);
+INSERT INTO "Countries" VALUES (5, 'Germany', 12);
 
 
 --
@@ -443,9 +439,7 @@ SELECT pg_catalog.setval('"Countries_id_seq"', 6, true);
 -- Data for Name: Country_Archive; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY "Country_Archive" (id, name, code) FROM stdin;
-6	ulke	243
-\.
+INSERT INTO "Country_Archive" VALUES (6, 'ulke', 243);
 
 
 --
@@ -454,11 +448,9 @@ COPY "Country_Archive" (id, name, code) FROM stdin;
 -- Data for Name: Products; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY "Products" (id, name, unit_price, detail) FROM stdin;
-1	product1	62	detail1
-2	product2	85	detail2
-4	product4	150	detail4
-\.
+INSERT INTO "Products" VALUES (1, 'product1', 62, 'detail1');
+INSERT INTO "Products" VALUES (2, 'product2', 85, 'detail2');
+INSERT INTO "Products" VALUES (4, 'product4', 150, 'detail4');
 
 
 --
@@ -467,8 +459,6 @@ COPY "Products" (id, name, unit_price, detail) FROM stdin;
 -- Data for Name: Products_In_Stock; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY "Products_In_Stock" (id, name, unit_price, detail, stock_id, serial) FROM stdin;
-\.
 
 
 --
@@ -495,10 +485,8 @@ SELECT pg_catalog.setval('"Products_id_seq"', 4, true);
 -- Data for Name: Roles; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY "Roles" (id, role_name) FROM stdin;
-1	Customer
-2	Employee
-\.
+INSERT INTO "Roles" VALUES (1, 'Customer');
+INSERT INTO "Roles" VALUES (2, 'Employee');
 
 
 --
@@ -516,11 +504,9 @@ SELECT pg_catalog.setval('"Roles_id_seq"', 2, true);
 -- Data for Name: Stocks; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY "Stocks" (id, name, product_id, quantity, unit_price) FROM stdin;
-1	stock1	1	123	87
-2	stock2	2	125	98
-5	stock5	4	6521	124
-\.
+INSERT INTO "Stocks" VALUES (1, 'stock1', 1, 123, 87);
+INSERT INTO "Stocks" VALUES (2, 'stock2', 2, 125, 98);
+INSERT INTO "Stocks" VALUES (5, 'stock5', 4, 6521, 124);
 
 
 --
@@ -538,11 +524,9 @@ SELECT pg_catalog.setval('"Stocks_id_seq"', 5, true);
 -- Data for Name: Users; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY "Users" (id, first_name, last_name, user_name, password, address, phone_number, role_id, city_id, birthday) FROM stdin;
-2	fname2	lname2	user2	pass2	address2	phone2	2	2	1994-05-05
-1	fname1	lname1	user1	pass1	address1	phone1	1	1	2001-10-28
-3	fname3	lname3	user3	pass3	address3	phone3	2	2	2002-03-27
-\.
+INSERT INTO "Users" VALUES (2, 'fname2', 'lname2', 'user2', 'pass2', 'address2', 'phone2', 2, 2, '1994-05-05');
+INSERT INTO "Users" VALUES (1, 'fname1', 'lname1', 'user1', 'pass1', 'address1', 'phone1', 1, 1, '2001-10-28');
+INSERT INTO "Users" VALUES (3, 'fname3', 'lname3', 'user3', 'pass3', 'address3', 'phone3', 2, 2, '2002-03-27');
 
 
 --
@@ -661,7 +645,7 @@ ALTER TABLE ONLY "Users"
     ADD CONSTRAINT "Users_role_id_fk" FOREIGN KEY (role_id) REFERENCES "Roles"(id) ON UPDATE SET NULL ON DELETE SET NULL;
 
 
--- Completed on 2017-12-11 11:26:25
+-- Completed on 2017-12-11 14:05:22
 
 --
 -- PostgreSQL database dump complete
