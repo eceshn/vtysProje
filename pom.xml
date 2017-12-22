@@ -15,7 +15,9 @@
 
     <build>
         <plugins>
-            <plugin>
+
+            <!-- Make an executable jar file (Makes without dependencies) -->
+            <!--<plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
                 <configuration>
@@ -26,20 +28,32 @@
                     </archive>
                 </configuration>
                 <version>3.0.2</version>
-            </plugin>
-<!--
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>exec-maven-plugin</artifactId>
-                <version>1.6.0</version>
-                <configuration>
-                    <mainClass>VtysProje.Main</mainClass>
-                    <arguments>
-                        <argument>-jar</argument>
-                        <argument>target/VtysProje-1.0-SNAPSHOT.jar</argument>
-                    </arguments>
-                </configuration>
             </plugin>-->
+
+            <!-- This plugin makes a jar file with project dependencies instead of with only project files -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <configuration>
+                            <archive>
+                                <manifest>
+                                    <mainClass>VtysProje.Main</mainClass>
+                                </manifest>
+                            </archive>
+                            <descriptorRefs>
+                                <descriptorRef>jar-with-dependencies</descriptorRef>
+                            </descriptorRefs>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
         </plugins>
     </build>
     <dependencies>
