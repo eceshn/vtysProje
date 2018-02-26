@@ -13,4 +13,4 @@ Set database properties in "VtysProje.util.Constants" before run.
 To build jar file:
 <code> mvn clean compile package </code>
 
-Then run jar file in "target" folder to launch :)
+Then run jar file in "target" folder to launch.
